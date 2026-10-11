@@ -1,6 +1,6 @@
-# What Did He Say Today? 🇺🇸
+# Trump's Dumb Dump of the Day 🇺🇸
 
-An automated fact-checking and media watchdog dashboard tracking statements made by Donald Trump in the past 24 hours, vetted against primary transcripts, 3 independent sources, and cross-media framing.
+An automated fact-checking and media watchdog dashboard tracking the dumbest, most absurd, or blatantly false statements made by Donald Trump in the past 24 hours. Styled using the official **America.gov** design system and vetted against primary transcripts, 3 independent sources, and cross-media framing.
 
 ## Project Structure
 

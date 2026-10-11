@@ -1,5 +1,5 @@
 """
-24-Hour Automated Ingestion & Fact-Check Script for 'What Did He Say Today?'
+24-Hour Automated Ingestion & Fact-Check Script for "Trump's Dumb Dump of the Day"
 
 This script is designed to run on a daily schedule (e.g. at 08:00 AM via
 Antigravity scheduled sidecar or GitHub Actions cron).
