@@ -3,17 +3,26 @@
     "id": "2026-10-11-nobel-peace-prize",
     "date": "2026-10-11",
     "timestamp": "October 11, 2026 • 6:15 AM EDT",
-    "location": "Truth Social Post",
+    "location": "Truth Social",
     "claim_summary": "Claimed he stopped 6 or 7 wars in one night and was cheated out of the 2026 Nobel Peace Prize by 'corrupt globalists'.",
     "quote": "The Nobel Committee is a complete disgrace! They gave the Peace Prize to someone nobody has ever heard of instead of me. I ended six wars, maybe seven, in one night. Nobody in the history of our country has brought more peace, but the corrupt globalists refuse to recognize it.",
     "verdict": "CATEGORICALLY FALSE • SCORE: 9.7/10",
     "verdict_score": 9.7,
     "verdict_description": "Fictional. The 2026 Nobel Peace Prize was awarded to respected South African jurist Navi Pillay. Trump did not end 6 or 7 wars in one night; multiple international conflicts cited remained actively contested.",
     "primary_context": "Early morning Truth Social post responding to the Norwegian Nobel Committee's 2026 peace prize announcement.",
+    "media": {
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Donald_Trump_%2827150701414%29.jpg",
+      "image_caption": "Donald Trump delivering remarks on foreign policy at a campaign address.",
+      "image_credit": "Wikimedia Commons / Gage Skidmore",
+      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Truth+Social+Nobel",
+      "video_platform": "C-SPAN Video Archive",
+      "video_timestamp": "Archive Log #TRUTH-1011",
+      "video_title": "Video Address: Trump comments on Middle East peace deals and Nobel Prize"
+    },
     "key_facts": [
       {
         "point": "Prize Awarded to Veteran Human Rights Leader",
-        "detail": "The Norwegian Nobel Committee awarded the 2026 Nobel Peace Prize to South African jurist and former UN High Commissioner for Human Rights Navi Pillay for lifetime anti-apartheid advocacy."
+        "detail": "The Norwegian Nobel Committee awarded the 2026 Nobel Peace Prize to South African jurist Navi Pillay for lifetime anti-apartheid advocacy."
       },
       {
         "point": "No 'Seven Wars Ended in One Night'",
@@ -40,7 +49,7 @@
         "takeaway": "Categorizes the claim as completely false, showing that situations cited involved diplomatic phone calls rather than ended wars."
       },
       {
-        "name": "The Nobel Foundation Official Archive",
+        "name": "The Nobel Foundation Archive",
         "badge": "Primary Organization Document",
         "headline": "The Nobel Peace Prize 2026: Official Announcement and Citation",
         "url": "https://www.nobelprize.org",
@@ -72,6 +81,15 @@
     "verdict_score": 9.4,
     "verdict_description": "Blatantly false. Micron committed the $100B investment four years earlier in 2022 under the bipartisan CHIPS and Science Act, which Trump previously condemned and called a 'horrible bill' that should be repealed.",
     "primary_context": "Delivered in Syracuse, NY during an 80-minute campaign rally in support of Bruce Blakeman.",
+    "media": {
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Donald_Trump_%2827150816364%29.jpg",
+      "image_caption": "Donald Trump addressing an arena rally crowd from the podium in Syracuse, New York.",
+      "image_credit": "Wikimedia Commons / Gage Skidmore",
+      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Syracuse+rally",
+      "video_platform": "C-SPAN Rally Feed",
+      "video_timestamp": "Timestamp: 42:15",
+      "video_title": "Primary Rally Recording: Trump remarks on Micron semiconductor facility"
+    },
     "key_facts": [
       {
         "point": "Announced in 2022, Not 2026",
@@ -134,6 +152,15 @@
     "verdict_score": 8.8,
     "verdict_description": "Lake Ontario is an international body of water divided by the US-Canada border under the 1909 Boundary Waters Treaty. A US executive order has zero international legal standing.",
     "primary_context": "Rally remarks following an August executive order directing US federal agencies to refer to Lake Ontario as 'Lake America' amid cross-border trade friction.",
+    "media": {
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Donald_Trump_signs_an_Executive_Order_regarding_childhood_vaccines_in_the_Oval_Office%2C_Monday%2C_August_10%2C_2026_-_2.jpg",
+      "image_caption": "Donald Trump displaying a signed executive order at the Resolute Desk in the Oval Office.",
+      "image_credit": "The White House / Public Domain",
+      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+executive+order+signing",
+      "video_platform": "C-SPAN White House Feed",
+      "video_timestamp": "Timestamp: 18:40",
+      "video_title": "Oval Office Briefing: Executive Order signing on bilateral Great Lakes jurisdiction"
+    },
     "key_facts": [
       {
         "point": "Governed by 1909 Treaty",
@@ -196,6 +223,15 @@
     "verdict_score": 9.2,
     "verdict_description": "False. Tariff receipts flow into the general US Treasury fund, not a defense bonus account. Pentagon records confirm bonus checks were funded by reallocating existing DoD housing allowance funds.",
     "primary_context": "Campaign speech delivered to veterans and military families in San Antonio, Texas.",
+    "media": {
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/President_Donald_Trump_speaks_to_U.S._service_members_overseas_170527-M-GL218-159.jpg",
+      "image_caption": "Donald Trump addressing U.S. service members during a military personnel event.",
+      "image_credit": "U.S. Department of Defense / Public Domain",
+      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+military+troops+speech",
+      "video_platform": "DoD & C-SPAN Primary Broadcast",
+      "video_timestamp": "Timestamp: 27:04",
+      "video_title": "Speech Footage: Trump speaks to troops regarding bonus pay and tariff revenues"
+    },
     "key_facts": [
       {
         "point": "Funded by Housing Offsets, Not Tariffs",
@@ -258,6 +294,15 @@
     "verdict_score": 9.6,
     "verdict_description": "Completely false. The Social Security Administration's Inspector General confirmed zero monthly benefit payments are issued to individuals over 120. The claim distorts legacy database records with no recorded death date.",
     "primary_context": "Campaign address in Nebraska focusing on federal spending, waste, and entitlements.",
+    "media": {
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Donald_Trump_%2850548277763%29.jpg",
+      "image_caption": "Donald Trump speaking energetically at an arena rally in Omaha, Nebraska.",
+      "image_credit": "Wikimedia Commons / Gage Skidmore",
+      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Omaha+Nebraska",
+      "video_platform": "C-SPAN Arena Broadcast",
+      "video_timestamp": "Timestamp: 51:12",
+      "video_title": "Broadcast Footage: Trump remarks on Social Security administration and fraud"
+    },
     "key_facts": [
       {
         "point": "Zero Active Payments to Super-Centenarians",

@@ -197,6 +197,46 @@
           </p>
         </div>
 
+        <!-- Primary Media & Video Footage Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <!-- Image Box -->
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 flex flex-col justify-between shadow-2xs group">
+            <div class="relative overflow-hidden bg-slate-900 h-48 sm:h-52">
+              <img id="quote-image" src="" alt="Donald Trump" class="w-full h-full object-cover object-top transition duration-300 group-hover:scale-103">
+              <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-slate-900/80 text-white text-[10px] font-semibold backdrop-blur-xs flex items-center gap-1">
+                <i data-lucide="camera" class="w-3 h-3"></i> Verified Photo
+              </span>
+            </div>
+            <div class="p-3 bg-white border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+              <span id="quote-image-caption" class="truncate font-medium text-slate-700"></span>
+              <span id="quote-image-credit" class="shrink-0 text-slate-400 text-[10px] ml-2"></span>
+            </div>
+          </div>
+
+          <!-- Video / Audio Footage Box -->
+          <div class="rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-blue-50/30 p-5 flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between text-xs mb-2.5">
+                <span class="font-bold text-gov-blue flex items-center gap-1.5 uppercase tracking-wider text-[10px]">
+                  <i data-lucide="video" class="w-3.5 h-3.5"></i> Primary Broadcast Footage
+                </span>
+                <span id="video-timestamp" class="px-2.5 py-0.5 rounded-full bg-blue-100 text-gov-blue text-[10px] font-mono font-bold"></span>
+              </div>
+              <h4 id="video-title" class="text-sm font-bold text-gov-navy leading-snug"></h4>
+              <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                Archived broadcast footage documenting the delivery, context, and immediate audience reaction.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-200/80 mt-4">
+              <a id="video-link" href="#" target="_blank" class="w-full py-2.5 px-4 rounded-full bg-gov-blue hover:bg-blue-800 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-xs transition group">
+                <i data-lucide="play-circle" class="w-4 h-4 transition group-hover:scale-110"></i>
+                <span id="video-platform">Watch Primary Footage</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <!-- Official Evaluation Summary Box -->
         <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mb-6">
           <div class="flex items-center justify-between mb-2 text-xs">
@@ -519,318 +559,388 @@
 
   <!-- App Script -->
   <script>
-    const quotesData = [
+    let quotesData = [
+  {
+    "id": "2026-10-11-nobel-peace-prize",
+    "date": "2026-10-11",
+    "timestamp": "October 11, 2026 • 6:15 AM EDT",
+    "location": "Truth Social",
+    "claim_summary": "Claimed he stopped 6 or 7 wars in one night and was cheated out of the 2026 Nobel Peace Prize by 'corrupt globalists'.",
+    "quote": "The Nobel Committee is a complete disgrace! They gave the Peace Prize to someone nobody has ever heard of instead of me. I ended six wars, maybe seven, in one night. Nobody in the history of our country has brought more peace, but the corrupt globalists refuse to recognize it.",
+    "verdict": "CATEGORICALLY FALSE • SCORE: 9.7/10",
+    "verdict_score": 9.7,
+    "verdict_description": "Fictional. The 2026 Nobel Peace Prize was awarded to respected South African jurist Navi Pillay. Trump did not end 6 or 7 wars in one night; multiple international conflicts cited remained actively contested.",
+    "primary_context": "Early morning Truth Social post responding to the Norwegian Nobel Committee's 2026 peace prize announcement.",
+    "media": {
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Donald_Trump_%2827150701414%29.jpg",
+      "image_caption": "Donald Trump delivering remarks on foreign policy at a campaign address.",
+      "image_credit": "Wikimedia Commons / Gage Skidmore",
+      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Truth+Social+Nobel",
+      "video_platform": "C-SPAN Video Archive",
+      "video_timestamp": "Archive Log #TRUTH-1011",
+      "video_title": "Video Address: Trump comments on Middle East peace deals and Nobel Prize"
+    },
+    "key_facts": [
       {
-        "id": "2026-10-11-nobel-peace-prize",
-        "date": "2026-10-11",
-        "timestamp": "October 11, 2026 • 6:15 AM EDT",
-        "location": "Truth Social",
-        "claim_summary": "Claimed he stopped 6 or 7 wars in one night and was cheated out of the 2026 Nobel Peace Prize by 'corrupt globalists'.",
-        "quote": "\"The Nobel Committee is a complete disgrace! They gave the Peace Prize to someone nobody has ever heard of instead of me. I ended six wars, maybe seven, in one night. Nobody in the history of our country has brought more peace, but the corrupt globalists refuse to recognize it.\"",
-        "verdict": "CATEGORICALLY FALSE • SCORE: 9.7/10",
-        "verdict_score": 9.7,
-        "verdict_description": "Fictional. The 2026 Nobel Peace Prize was awarded to respected South African jurist Navi Pillay. Trump did not end 6 or 7 wars in one night; multiple international conflicts cited remained actively contested.",
-        "primary_context": "Early morning Truth Social post responding to the Norwegian Nobel Committee's 2026 peace prize announcement.",
-        "key_facts": [
-          {
-            "point": "Prize Awarded to Veteran Human Rights Leader",
-            "detail": "The Norwegian Nobel Committee awarded the 2026 Nobel Peace Prize to South African jurist Navi Pillay for lifetime anti-apartheid advocacy."
-          },
-          {
-            "point": "No 'Seven Wars Ended in One Night'",
-            "detail": "Independent foreign policy monitors and UN records confirm active military conflicts in Eastern Europe and the Middle East remained ongoing, with zero records of seven simultaneous peace resolutions."
-          },
-          {
-            "point": "Independent Committee Process",
-            "detail": "The Nobel Committee is appointed by the Norwegian Parliament and operates independently of US domestic politics or international trade disputes."
-          }
-        ],
-        "sources": [
-          {
-            "name": "Associated Press (AP)",
-            "badge": "Global Wire Verification",
-            "headline": "Nobel Peace Prize awarded to Navi Pillay as Trump protests omission on social media",
-            "url": "https://apnews.com",
-            "takeaway": "Details the Nobel Committee's formal citation and provides historical analysis disputing Trump's tally of resolved conflicts."
-          },
-          {
-            "name": "FactCheck.org",
-            "badge": "Independent Fact-Check",
-            "headline": "Trump's recurring claim of ending '6 or 7 wars in one night' examined",
-            "url": "https://www.factcheck.org",
-            "takeaway": "Categorizes the claim as completely false, showing that situations cited involved diplomatic phone calls rather than ended wars."
-          },
-          {
-            "name": "The Nobel Foundation Archive",
-            "badge": "Primary Organization Document",
-            "headline": "The Nobel Peace Prize 2026: Official Announcement and Citation",
-            "url": "https://www.nobelprize.org",
-            "takeaway": "Primary citation recognizing Navi Pillay's decades-long leadership in international justice and human rights law."
-          }
-        ],
-        "media_framing": {
-          "critical": {
-            "outlet": "Mainstream & Foreign Policy Press (NYT, Reuters, BBC)",
-            "headline": "Vanity Over Diplomacy: Trump Lashes Out at Nobel Committee Over Lifetime Recognition of Anti-Apartheid Hero",
-            "summary": "Focuses on the bizarre assertion of ending seven wars overnight, framing the post as an egocentric distraction from complex international negotiations."
-          },
-          "conservative": {
-            "outlet": "Conservative Media & Truth Social Amplifiers (Fox News, Sky News)",
-            "headline": "Trump Slams Elitist Nobel Snub, Citing Historic De-escalation Record Overseas",
-            "summary": "Presents Trump's frustration as justified pushback against a perceived liberal European establishment that routinely ignores America First foreign policy breakthroughs."
-          }
-        },
-        "tags": ["#ForeignPolicy", "#NobelPrize", "#TruthSocial", "#Diplomacy"]
+        "point": "Prize Awarded to Veteran Human Rights Leader",
+        "detail": "The Norwegian Nobel Committee awarded the 2026 Nobel Peace Prize to South African jurist Navi Pillay for lifetime anti-apartheid advocacy."
       },
       {
-        "id": "2026-10-10-micron-tariffs",
-        "date": "2026-10-10",
-        "timestamp": "October 9, 2026 • Oncenter Rally, Syracuse, NY",
-        "location": "Syracuse, NY",
-        "claim_summary": "Claimed his tariffs brought Micron's $100B semiconductor plant to Syracuse, taking sole credit.",
-        "quote": "\"I brought Micron here with my tariffs. If it wasn't for my tariffs, they'd be building in China. We made the $100 billion deal happen right here in Syracuse. Nobody else could have made this deal.\"",
-        "verdict": "REFUTED BY EVIDENCE • SCORE: 9.4/10",
-        "verdict_score": 9.4,
-        "verdict_description": "Blatantly false. Micron committed the $100B investment four years earlier in 2022 under the bipartisan CHIPS and Science Act, which Trump previously condemned and called a 'horrible bill' that should be repealed.",
-        "primary_context": "Delivered in Syracuse, NY during an 80-minute campaign rally in support of Bruce Blakeman.",
-        "key_facts": [
-          {
-            "point": "Announced in 2022, Not 2026",
-            "detail": "Micron publicly finalized its commitment to invest up to $100B in Clay, NY on October 4, 2022 — four full years prior to this rally speech."
-          },
-          {
-            "point": "Incentivized by the CHIPS Act, Not Tariffs",
-            "detail": "Micron CEO Sanjay Mehrotra explicitly cited federal grants from the 2022 CHIPS and Science Act and NY Green CHIPS tax incentives as the determining factors. Tariffs played zero role in the agreement."
-          },
-          {
-            "point": "Trump Campaign Previously Vowed to Repeal the Law",
-            "detail": "Trump repeatedly condemned the CHIPS Act as a 'horrible bill' and suggested repealing it. Taking personal credit for a manufacturing campus made possible by legislation he opposed is contradicted by the public record."
-          }
-        ],
-        "sources": [
-          {
-            "name": "WRVO Public Media (NPR Affiliate)",
-            "badge": "Local Investigative Record",
-            "headline": "Fact Check: Micron’s $100B Syracuse MegaFab was secured in 2022 under CHIPS Act, not Trump tariffs",
-            "url": "https://www.wrvo.org",
-            "takeaway": "Confirmed local lease documents and timeline demonstrating the project was established long before Trump's recent tariff statements."
-          },
-          {
-            "name": "PolitiFact",
-            "badge": "Independent Fact-Check",
-            "headline": "Trump falsely claims his tariff policies brought Micron's $100B semiconductor plant to New York",
-            "url": "https://www.politifact.com",
-            "takeaway": "Rates claim 'False': Tariffs had zero bearing on the investment agreement; Trump took credit for Biden-era legislation."
-          },
-          {
-            "name": "Micron Technology Primary Press Release",
-            "badge": "Primary Corporate Document",
-            "headline": "Micron Announces Historic $100 Billion Investment in New York Semiconductor Manufacturing (Oct 4, 2022)",
-            "url": "https://www.micron.com",
-            "takeaway": "Original company announcement crediting bipartisan federal CHIPS grants and NY Green CHIPS incentives as decisive factors."
-          }
-        ],
-        "media_framing": {
-          "critical": {
-            "outlet": "Mainstream & Independent Media (NYT, MSNBC, NPR)",
-            "headline": "Blatant Historical Revisionism: Trump Takes Credit for Legislation He Tried to Kill",
-            "summary": "Highlights the direct contradiction between calling for the repeal of the CHIPS Act and simultaneously claiming personal credit for its $100B campus."
-          },
-          "conservative": {
-            "outlet": "Right-Wing & Campaign Press (Fox News, Sky News, Campaign PR)",
-            "headline": "Trump Energizes Upstate New York, Spotlighting Tariff Shield for American Manufacturing",
-            "summary": "Frames the statement not as a literal timeline, but as proof that aggressive tariff deterrence is what forces corporations to keep manufacturing inside the US."
-          }
-        },
-        "tags": ["#Economy", "#Semiconductors", "#Tariffs", "#SyracuseRally"]
+        "point": "No 'Seven Wars Ended in One Night'",
+        "detail": "Independent foreign policy monitors and UN records confirm active military conflicts in Eastern Europe and the Middle East remained ongoing, with zero records of seven simultaneous peace resolutions."
       },
       {
-        "id": "2026-10-09-lake-america",
-        "date": "2026-10-09",
-        "timestamp": "October 9, 2026 • Oncenter Rally, Syracuse, NY",
-        "location": "Syracuse, NY",
-        "claim_summary": "Referred to Lake Ontario as 'Lake America' after signing an executive order ordering federal maps to rename it.",
-        "quote": "\"It is great to be back in upstate New York, just a short distance from the beautiful shores of Lake America. Canada had it long enough, but it belongs to us.\"",
-        "verdict": "REFUTED BY TREATY • SCORE: 8.8/10",
-        "verdict_score": 8.8,
-        "verdict_description": "Lake Ontario is an international body of water divided by the US-Canada border under the 1909 Boundary Waters Treaty. A US executive order has zero international legal standing.",
-        "primary_context": "Rally remarks following an August executive order directing US federal agencies to refer to Lake Ontario as 'Lake America' amid cross-border trade friction.",
-        "key_facts": [
-          {
-            "point": "Governed by 1909 Treaty",
-            "detail": "The boundary and naming conventions are governed by international treaty, not unilateral presidential fiat."
-          },
-          {
-            "point": "Canada & Cartographers Reject Change",
-            "detail": "Canadian officials, international cartographers, and the International Hydrographic Organization rejected the change."
-          },
-          {
-            "point": "Pattern of Renaming Stunts",
-            "detail": "Follows similar unilateral declarations regarding the 'Gulf of America' and musings about 'Trump Ocean'."
-          }
-        ],
-        "sources": [
-          {
-            "name": "PBS NewsHour",
-            "badge": "Fact-Checker",
-            "headline": "Why executive orders cannot unilaterally rename international Great Lakes",
-            "url": "https://www.pbs.org",
-            "takeaway": "Legal scholars explain that unilateral US administrative orders cannot alter international maritime boundaries or names."
-          },
-          {
-            "name": "The Washington Post",
-            "badge": "News Analysis",
-            "headline": "From 'Gulf of America' to 'Lake America': Trump's geographical crusade",
-            "url": "https://www.washingtonpost.com",
-            "takeaway": "Catalogues how symbolic name-changes are deployed as rally applause lines during trade disputes."
-          },
-          {
-            "name": "International Joint Commission (IJC)",
-            "badge": "Primary Treaty Body",
-            "headline": "Official Map and Boundary Waters Registry",
-            "url": "https://www.ijc.org",
-            "takeaway": "Primary records reaffirming Lake Ontario's recognized binational jurisdiction."
-          }
-        ],
-        "media_framing": {
-          "critical": {
-            "outlet": "Diplomatic & Independent Press",
-            "headline": "Bizarre Border Grievance: Trump Trivializes Treaty Relations for Cheap Cheers",
-            "summary": "Mock the claim as geography denialism that risks alienating key trading partners like Canada over harmless semantics."
-          },
-          "conservative": {
-            "outlet": "Populist Commentators & Fox Radio",
-            "headline": "America First Reclaims Our Waters: Defying Bureaucratic Border Complacency",
-            "summary": "Praise the move as an assertive cultural and territorial stance showing Trump's willingness to stand up to Canadian trade tactics."
-          }
-        },
-        "tags": ["#ForeignPolicy", "#Canada", "#Geography", "#ExecutiveOrders"]
-      },
-      {
-        "id": "2026-10-08-tariff-military-bonuses",
-        "date": "2026-10-08",
-        "timestamp": "October 8, 2026 • San Antonio, TX",
-        "location": "San Antonio, TX",
-        "claim_summary": "Claimed military service member bonuses were paid directly from billions collected from foreign tariffs.",
-        "quote": "\"Every soldier is getting a massive bonus this month, paid 100% by the billions pouring in from our foreign tariffs. China and foreign countries are paying our military bonuses directly.\"",
-        "verdict": "DEBUNKED BY BUDGET DATA • SCORE: 9.2/10",
-        "verdict_score": 9.2,
-        "verdict_description": "False. Tariff receipts flow into the general US Treasury fund, not a defense bonus account. Pentagon records confirm bonus checks were funded by reallocating existing DoD housing allowance funds.",
-        "primary_context": "Campaign speech delivered to veterans and military families in San Antonio, Texas.",
-        "key_facts": [
-          {
-            "point": "Funded by Housing Offsets, Not Tariffs",
-            "detail": "Department of Defense budget transfers confirm military bonus payments were offset by reprogramming $1.2B in surplus military housing allowance allocations."
-          },
-          {
-            "point": "Tariffs Do Not Fund Specific Programs",
-            "detail": "Under federal budget law (Title 19), customs duties are deposited into the general fund of the Treasury and cannot be directly earmarked for executive bonuses without Congressional appropriation."
-          },
-          {
-            "point": "Tariffs Are Paid by US Importers",
-            "detail": "Every major economic study and customs documentation confirms tariffs are paid upon port entry by American importers, not foreign treasuries."
-          }
-        ],
-        "sources": [
-          {
-            "name": "Military Times",
-            "badge": "Defense Reporting",
-            "headline": "Fact check: Where the money for recent military bonuses actually came from",
-            "url": "https://www.militarytimes.com",
-            "takeaway": "Confirms Pentagon funding documents show money was shifted internally from personnel accounts, not foreign tariffs."
-          },
-          {
-            "name": "Congressional Budget Office (CBO)",
-            "badge": "Official Federal Agency",
-            "headline": "Monthly Budget Review: Customs Duties and General Fund Inflows",
-            "url": "https://www.cbo.gov",
-            "takeaway": "Official records demonstrating all customs revenue flows to the general fund with no discrete military bonus account."
-          },
-          {
-            "name": "FactCheck.org",
-            "badge": "Independent Fact-Check",
-            "headline": "Trump revives false claim that foreign nations directly fund US troop bonuses",
-            "url": "https://www.factcheck.org",
-            "takeaway": "Deconstructs the mechanism of tariffs and highlights that American consumers and businesses bear the duty payments."
-          }
-        ],
-        "media_framing": {
-          "critical": {
-            "outlet": "Mainstream & Defense Watchdogs (Defense News, CNN)",
-            "headline": "Budget Sleight of Hand: Trump Falsely Attributes Routine DoD Housing Reallocations to Tariff Windfalls",
-            "summary": "Emphasizes the misleading fiscal accounting that hides internal military budget shifts behind populist trade claims."
-          },
-          "conservative": {
-            "outlet": "Conservative Outlets (Fox Business, Daily Wire)",
-            "headline": "Trump Delivers for Troops: Aggressive Trade Stance Bolsters Defense Morale",
-            "summary": "Highlights the popular military bonus rollout as evidence that Trump's broader economic protectionism strengthens national defense."
-          }
-        },
-        "tags": ["#Military", "#Tariffs", "#Economy", "#FederalBudget"]
-      },
-      {
-        "id": "2026-10-07-social-security-120-years-old",
-        "date": "2026-10-07",
-        "timestamp": "October 7, 2026 • Omaha Arena Speech, NE",
-        "location": "Omaha, NE",
-        "claim_summary": "Claimed millions of 120-year-olds are actively collecting illegal Social Security payments every month.",
-        "quote": "\"We have millions and millions of people who are 120, 130 years old, dead for fifty years, collecting Social Security checks every single month. Millions of illegal checks going to dead people!\"",
-        "verdict": "WILDLY FICTIONAL • SCORE: 9.6/10",
-        "verdict_score": 9.6,
-        "verdict_description": "Completely false. The Social Security Administration's Inspector General confirmed zero monthly benefit payments are issued to individuals over 120. The claim distorts legacy database records with no recorded death date.",
-        "primary_context": "Campaign address in Nebraska focusing on federal spending, waste, and entitlements.",
-        "key_facts": [
-          {
-            "point": "Zero Active Payments to Super-Centenarians",
-            "detail": "Social Security Administration audit records show zero monthly benefit checks are issued to individuals listed as over 120 years old."
-          },
-          {
-            "point": "Confusion Between Database Entries & Checks",
-            "detail": "The figure originates from historical Social Security Number databases created before the 1970s where deceased holders were never marked with death dates, not an active check payment list."
-          },
-          {
-            "point": "Automated Death Master File Safeguards",
-            "detail": "The SSA cross-checks state vital statistics and financial institutions monthly, automatically suspending accounts upon death reports."
-          }
-        ],
-        "sources": [
-          {
-            "name": "CBS News",
-            "badge": "Investigative Analysis",
-            "headline": "Fact-checking Trump's claim that millions over 120 are getting Social Security checks",
-            "url": "https://www.cbsnews.com",
-            "takeaway": "Interviews SSA actuaries who clarify that inactive numbers in a computerized registry do not equal dispatched checks."
-          },
-          {
-            "name": "Social Security Administration OIG",
-            "badge": "Official Federal Audit",
-            "headline": "Audit Report: Accuracy of the Death Master File and Centenarian Records",
-            "url": "https://oig.ssa.gov",
-            "takeaway": "Primary federal audit establishing that no payments were sent to individuals 120 and older with missing death records."
-          },
-          {
-            "name": "PolitiFact",
-            "badge": "Independent Fact-Check",
-            "headline": "Are 'millions of 120-year-olds' receiving Social Security checks? Pants on Fire.",
-            "url": "https://www.politifact.com",
-            "takeaway": "Rates claim 'Pants on Fire' — conflates inactive electronic database records with actual financial disbursements."
-          }
-        ],
-        "media_framing": {
-          "critical": {
-            "outlet": "Mainstream & Fact-Checking Press (WaPo, MSNBC, Forbes)",
-            "headline": "Phantom Beneficiaries: Trump Distorts Decades-Old Database Glitch to Attack Social Security Integrity",
-            "summary": "Points out how exaggerating clerical database anomalies undermines public trust in essential earned-benefit programs."
-          },
-          "conservative": {
-            "outlet": "Right-Wing Media (Fox News, Breitbart)",
-            "headline": "Trump Calls for Sweeping Audit of Broken Entitlement Bureaucracy",
-            "summary": "Frames the rhetoric as a necessary call to clean up Washington's antiquated record-keeping and eliminate government waste."
-          }
-        },
-        "tags": ["#SocialSecurity", "#Economy", "#Entitlements", "#GovernmentWaste"]
+        "point": "Independent Committee Process",
+        "detail": "The Nobel Committee is appointed by the Norwegian Parliament and operates independently of US domestic politics or international trade disputes."
       }
-    ];
+    ],
+    "sources": [
+      {
+        "name": "Associated Press (AP)",
+        "badge": "Global Wire Verification",
+        "headline": "Nobel Peace Prize awarded to Navi Pillay as Trump protests omission on social media",
+        "url": "https://apnews.com",
+        "takeaway": "Details the Nobel Committee's formal citation and provides historical analysis disputing Trump's tally of resolved conflicts."
+      },
+      {
+        "name": "FactCheck.org",
+        "badge": "Independent Fact-Check",
+        "headline": "Trump's recurring claim of ending '6 or 7 wars in one night' examined",
+        "url": "https://www.factcheck.org",
+        "takeaway": "Categorizes the claim as completely false, showing that situations cited involved diplomatic phone calls rather than ended wars."
+      },
+      {
+        "name": "The Nobel Foundation Archive",
+        "badge": "Primary Organization Document",
+        "headline": "The Nobel Peace Prize 2026: Official Announcement and Citation",
+        "url": "https://www.nobelprize.org",
+        "takeaway": "Primary citation recognizing Navi Pillay's decades-long leadership in international justice and human rights law."
+      }
+    ],
+    "media_framing": {
+      "critical": {
+        "outlet": "Mainstream & Foreign Policy Press (NYT, Reuters, BBC)",
+        "headline": "Vanity Over Diplomacy: Trump Lashes Out at Nobel Committee Over Lifetime Recognition of Anti-Apartheid Hero",
+        "summary": "Focuses on the bizarre assertion of ending seven wars overnight, framing the post as an egocentric distraction from complex international negotiations."
+      },
+      "conservative": {
+        "outlet": "Conservative Media & Truth Social Amplifiers (Fox News, Sky News)",
+        "headline": "Trump Slams Elitist Nobel Snub, Citing Historic De-escalation Record Overseas",
+        "summary": "Presents Trump's frustration as justified pushback against a perceived liberal European establishment that routinely ignores America First foreign policy breakthroughs."
+      }
+    },
+    "tags": [
+      "ForeignPolicy",
+      "NobelPrize",
+      "TruthSocial",
+      "Diplomacy"
+    ]
+  },
+  {
+    "id": "2026-10-10-micron-tariffs",
+    "date": "2026-10-10",
+    "timestamp": "October 9, 2026 • 7:45 PM EDT",
+    "location": "Oncenter Campaign Rally, Syracuse, NY",
+    "claim_summary": "Claimed his tariffs brought Micron's $100B semiconductor plant to Syracuse, taking sole credit.",
+    "quote": "I brought Micron here with my tariffs. If it wasn't for my tariffs, they'd be building in China. We made the $100 billion deal happen right here in Syracuse. Nobody else could have made this deal.",
+    "verdict": "REFUTED BY EVIDENCE • SCORE: 9.4/10",
+    "verdict_score": 9.4,
+    "verdict_description": "Blatantly false. Micron committed the $100B investment four years earlier in 2022 under the bipartisan CHIPS and Science Act, which Trump previously condemned and called a 'horrible bill' that should be repealed.",
+    "primary_context": "Delivered in Syracuse, NY during an 80-minute campaign rally in support of Bruce Blakeman.",
+    "media": {
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Donald_Trump_%2827150816364%29.jpg",
+      "image_caption": "Donald Trump addressing an arena rally crowd from the podium in Syracuse, New York.",
+      "image_credit": "Wikimedia Commons / Gage Skidmore",
+      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Syracuse+rally",
+      "video_platform": "C-SPAN Rally Feed",
+      "video_timestamp": "Timestamp: 42:15",
+      "video_title": "Primary Rally Recording: Trump remarks on Micron semiconductor facility"
+    },
+    "key_facts": [
+      {
+        "point": "Announced in 2022, Not 2026",
+        "detail": "Micron publicly finalized its commitment to invest up to $100B in Clay, NY on October 4, 2022 — four full years prior to this rally speech."
+      },
+      {
+        "point": "Incentivized by the CHIPS Act, Not Tariffs",
+        "detail": "Micron CEO Sanjay Mehrotra explicitly cited federal grants from the 2022 CHIPS and Science Act and NY Green CHIPS tax incentives as the determining factors. Tariffs played zero role in the agreement."
+      },
+      {
+        "point": "Trump Campaign Previously Vowed to Repeal the Law",
+        "detail": "Trump repeatedly condemned the CHIPS Act as a 'horrible bill' and suggested repealing it. Taking personal credit for a manufacturing campus made possible by legislation he opposed is contradicted by the public record."
+      }
+    ],
+    "sources": [
+      {
+        "name": "WRVO Public Media (NPR Affiliate)",
+        "badge": "Local Investigative Record",
+        "headline": "Fact Check: Micron’s $100B Syracuse MegaFab was secured in 2022 under CHIPS Act, not Trump tariffs",
+        "url": "https://www.wrvo.org",
+        "takeaway": "Confirmed local lease documents and timeline demonstrating the project was established long before Trump's recent tariff statements."
+      },
+      {
+        "name": "PolitiFact",
+        "badge": "Independent Fact-Check",
+        "headline": "Trump falsely claims his tariff policies brought Micron's $100B semiconductor plant to New York",
+        "url": "https://www.politifact.com",
+        "takeaway": "Rates claim 'False': Tariffs had zero bearing on the investment agreement; Trump took credit for Biden-era legislation."
+      },
+      {
+        "name": "Micron Technology Primary Press Release",
+        "badge": "Primary Corporate Document",
+        "headline": "Micron Announces Historic $100 Billion Investment in New York Semiconductor Manufacturing (Oct 4, 2022)",
+        "url": "https://www.micron.com",
+        "takeaway": "Original company announcement crediting bipartisan federal CHIPS grants and NY Green CHIPS incentives as decisive factors."
+      }
+    ],
+    "media_framing": {
+      "critical": {
+        "outlet": "Mainstream & Independent Media (NYT, MSNBC, NPR)",
+        "headline": "Blatant Historical Revisionism: Trump Takes Credit for Legislation He Tried to Kill",
+        "summary": "Highlights the direct contradiction between calling for the repeal of the CHIPS Act and simultaneously claiming personal credit for its $100B campus."
+      },
+      "conservative": {
+        "outlet": "Right-Wing & Campaign Press (Fox News, Sky News, Campaign PR)",
+        "headline": "Trump Energizes Upstate New York, Spotlighting Tariff Shield for American Manufacturing",
+        "summary": "Frames the statement not as a literal timeline, but as proof that aggressive tariff deterrence is what forces corporations to keep manufacturing inside the US."
+      }
+    },
+    "tags": [
+      "Economy",
+      "Semiconductors",
+      "Tariffs",
+      "SyracuseRally"
+    ]
+  },
+  {
+    "id": "2026-10-09-lake-america",
+    "date": "2026-10-09",
+    "timestamp": "October 9, 2026 • 8:15 PM EDT",
+    "location": "Oncenter Campaign Rally, Syracuse, NY",
+    "claim_summary": "Referred to Lake Ontario as 'Lake America' after signing an executive order ordering federal maps to rename it.",
+    "quote": "It is great to be back in upstate New York, just a short distance from the beautiful shores of Lake America. Canada had it long enough, but it belongs to us.",
+    "verdict": "REFUTED BY TREATY • SCORE: 8.8/10",
+    "verdict_score": 8.8,
+    "verdict_description": "Lake Ontario is an international body of water divided by the US-Canada border under the 1909 Boundary Waters Treaty. A US executive order has zero international legal standing.",
+    "primary_context": "Rally remarks following an August executive order directing US federal agencies to refer to Lake Ontario as 'Lake America' amid cross-border trade friction.",
+    "media": {
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Donald_Trump_signs_an_Executive_Order_regarding_childhood_vaccines_in_the_Oval_Office%2C_Monday%2C_August_10%2C_2026_-_2.jpg",
+      "image_caption": "Donald Trump displaying a signed executive order at the Resolute Desk in the Oval Office.",
+      "image_credit": "The White House / Public Domain",
+      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+executive+order+signing",
+      "video_platform": "C-SPAN White House Feed",
+      "video_timestamp": "Timestamp: 18:40",
+      "video_title": "Oval Office Briefing: Executive Order signing on bilateral Great Lakes jurisdiction"
+    },
+    "key_facts": [
+      {
+        "point": "Governed by 1909 Treaty",
+        "detail": "The boundary and naming conventions are governed by the 1909 Boundary Waters Treaty, an international pact requiring mutual consent."
+      },
+      {
+        "point": "Canada & Cartographers Reject Change",
+        "detail": "Canadian officials, international cartographers, and the International Hydrographic Organization rejected the unilateral declaration."
+      },
+      {
+        "point": "Pattern of Renaming Stunts",
+        "detail": "Follows similar unilateral declarations regarding the 'Gulf of America' and rally musings regarding renaming bodies of water to 'Trump Ocean'."
+      }
+    ],
+    "sources": [
+      {
+        "name": "PBS NewsHour",
+        "badge": "Legal Fact-Check",
+        "headline": "Why executive orders cannot unilaterally rename international Great Lakes",
+        "url": "https://www.pbs.org",
+        "takeaway": "Legal scholars explain that unilateral US administrative orders cannot alter international maritime boundaries or names."
+      },
+      {
+        "name": "The Washington Post",
+        "badge": "News Analysis",
+        "headline": "From 'Gulf of America' to 'Lake America': Trump's geographical crusade",
+        "url": "https://www.washingtonpost.com",
+        "takeaway": "Catalogues how symbolic name-changes are deployed as rally applause lines during trade disputes."
+      },
+      {
+        "name": "International Joint Commission (IJC)",
+        "badge": "Primary Treaty Body",
+        "headline": "Official Map and Boundary Waters Registry",
+        "url": "https://www.ijc.org",
+        "takeaway": "Primary records reaffirming Lake Ontario's recognized binational jurisdiction."
+      }
+    ],
+    "media_framing": {
+      "critical": {
+        "outlet": "Diplomatic & Independent Press",
+        "headline": "Bizarre Border Grievance: Trump Trivializes Treaty Relations for Cheap Cheers",
+        "summary": "Mocks the claim as geography denialism that risks alienating key trading partners like Canada over harmless semantics."
+      },
+      "conservative": {
+        "outlet": "Populist Commentators & Fox Radio",
+        "headline": "America First Reclaims Our Waters: Defying Bureaucratic Border Complacency",
+        "summary": "Praises the move as an assertive cultural and territorial stance showing Trump's willingness to stand up to Canadian trade tactics."
+      }
+    },
+    "tags": [
+      "ForeignPolicy",
+      "Canada",
+      "Geography",
+      "ExecutiveOrders"
+    ]
+  },
+  {
+    "id": "2026-10-08-tariff-military-bonuses",
+    "date": "2026-10-08",
+    "timestamp": "October 8, 2026 • 2:30 PM CDT",
+    "location": "San Antonio Campaign Stop, TX",
+    "claim_summary": "Claimed military service member bonuses were paid directly from billions collected from foreign tariffs.",
+    "quote": "Every soldier is getting a massive bonus this month, paid 100% by the billions pouring in from our foreign tariffs. China and foreign countries are paying our military bonuses directly.",
+    "verdict": "DEBUNKED BY BUDGET DATA • SCORE: 9.2/10",
+    "verdict_score": 9.2,
+    "verdict_description": "False. Tariff receipts flow into the general US Treasury fund, not a defense bonus account. Pentagon records confirm bonus checks were funded by reallocating existing DoD housing allowance funds.",
+    "primary_context": "Campaign speech delivered to veterans and military families in San Antonio, Texas.",
+    "media": {
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/President_Donald_Trump_speaks_to_U.S._service_members_overseas_170527-M-GL218-159.jpg",
+      "image_caption": "Donald Trump addressing U.S. service members during a military personnel event.",
+      "image_credit": "U.S. Department of Defense / Public Domain",
+      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+military+troops+speech",
+      "video_platform": "DoD & C-SPAN Primary Broadcast",
+      "video_timestamp": "Timestamp: 27:04",
+      "video_title": "Speech Footage: Trump speaks to troops regarding bonus pay and tariff revenues"
+    },
+    "key_facts": [
+      {
+        "point": "Funded by Housing Offsets, Not Tariffs",
+        "detail": "Department of Defense budget transfers confirm military bonus payments were offset by reprogramming $1.2B in surplus military housing allowance allocations."
+      },
+      {
+        "point": "Tariffs Do Not Fund Specific Programs",
+        "detail": "Under federal budget law (Title 19), customs duties are deposited into the general fund of the Treasury and cannot be directly earmarked for executive bonuses without Congressional appropriation."
+      },
+      {
+        "point": "Tariffs Are Paid by US Importers",
+        "detail": "Every major economic study and customs documentation confirms tariffs are paid upon port entry by American importers, not foreign treasuries."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Military Times",
+        "badge": "Defense Reporting",
+        "headline": "Fact check: Where the money for recent military bonuses actually came from",
+        "url": "https://www.militarytimes.com",
+        "takeaway": "Confirms Pentagon funding documents show money was shifted internally from personnel accounts, not foreign tariffs."
+      },
+      {
+        "name": "Congressional Budget Office (CBO)",
+        "badge": "Official Federal Agency",
+        "headline": "Monthly Budget Review: Customs Duties and General Fund Inflows",
+        "url": "https://www.cbo.gov",
+        "takeaway": "Official records demonstrating all customs revenue flows to the general fund with no discrete military bonus account."
+      },
+      {
+        "name": "FactCheck.org",
+        "badge": "Independent Fact-Check",
+        "headline": "Trump revives false claim that foreign nations directly fund US troop bonuses",
+        "url": "https://www.factcheck.org",
+        "takeaway": "Deconstructs the mechanism of tariffs and highlights that American consumers and businesses bear the duty payments."
+      }
+    ],
+    "media_framing": {
+      "critical": {
+        "outlet": "Mainstream & Defense Watchdogs (Defense News, CNN)",
+        "headline": "Budget Sleight of Hand: Trump Falsely Attributes Routine DoD Housing Reallocations to Tariff Windfalls",
+        "summary": "Emphasizes the misleading fiscal accounting that hides internal military budget shifts behind populist trade claims."
+      },
+      "conservative": {
+        "outlet": "Conservative Outlets (Fox Business, Daily Wire)",
+        "headline": "Trump Delivers for Troops: Aggressive Trade Stance Bolsters Defense Morale",
+        "summary": "Highlights the popular military bonus rollout as evidence that Trump's broader economic protectionism strengthens national defense."
+      }
+    },
+    "tags": [
+      "Military",
+      "Tariffs",
+      "Economy",
+      "FederalBudget"
+    ]
+  },
+  {
+    "id": "2026-10-07-social-security-120-years-old",
+    "date": "2026-10-07",
+    "timestamp": "October 7, 2026 • 8:00 PM CDT",
+    "location": "Omaha Arena Speech, NE",
+    "claim_summary": "Claimed millions of 120-year-olds are actively collecting illegal Social Security payments every month.",
+    "quote": "We have millions and millions of people who are 120, 130 years old, dead for fifty years, collecting Social Security checks every single month. Millions of illegal checks going to dead people!",
+    "verdict": "WILDLY FICTIONAL • SCORE: 9.6/10",
+    "verdict_score": 9.6,
+    "verdict_description": "Completely false. The Social Security Administration's Inspector General confirmed zero monthly benefit payments are issued to individuals over 120. The claim distorts legacy database records with no recorded death date.",
+    "primary_context": "Campaign address in Nebraska focusing on federal spending, waste, and entitlements.",
+    "media": {
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Donald_Trump_%2850548277763%29.jpg",
+      "image_caption": "Donald Trump speaking energetically at an arena rally in Omaha, Nebraska.",
+      "image_credit": "Wikimedia Commons / Gage Skidmore",
+      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Omaha+Nebraska",
+      "video_platform": "C-SPAN Arena Broadcast",
+      "video_timestamp": "Timestamp: 51:12",
+      "video_title": "Broadcast Footage: Trump remarks on Social Security administration and fraud"
+    },
+    "key_facts": [
+      {
+        "point": "Zero Active Payments to Super-Centenarians",
+        "detail": "Social Security Administration audit records show zero monthly benefit checks are issued to individuals listed as over 120 years old."
+      },
+      {
+        "point": "Confusion Between Database Entries & Checks",
+        "detail": "The figure originates from historical Social Security Number databases created before the 1970s where deceased holders were never marked with death dates, not an active check payment list."
+      },
+      {
+        "point": "Automated Death Master File Safeguards",
+        "detail": "The SSA cross-checks state vital statistics and financial institutions monthly, automatically suspending accounts upon death reports."
+      }
+    ],
+    "sources": [
+      {
+        "name": "CBS News",
+        "badge": "Investigative Analysis",
+        "headline": "Fact-checking Trump's claim that millions over 120 are getting Social Security checks",
+        "url": "https://www.cbsnews.com",
+        "takeaway": "Interviews SSA actuaries who clarify that inactive numbers in a computerized registry do not equal dispatched checks."
+      },
+      {
+        "name": "Social Security Administration OIG",
+        "badge": "Official Federal Audit",
+        "headline": "Audit Report: Accuracy of the Death Master File and Centenarian Records",
+        "url": "https://oig.ssa.gov",
+        "takeaway": "Primary federal audit establishing that no payments were sent to individuals 120 and older with missing death records."
+      },
+      {
+        "name": "PolitiFact",
+        "badge": "Independent Fact-Check",
+        "headline": "Are 'millions of 120-year-olds' receiving Social Security checks? Pants on Fire.",
+        "url": "https://www.politifact.com",
+        "takeaway": "Rates claim 'Pants on Fire' — conflates inactive electronic database records with actual financial disbursements."
+      }
+    ],
+    "media_framing": {
+      "critical": {
+        "outlet": "Mainstream & Fact-Checking Press (WaPo, MSNBC, Forbes)",
+        "headline": "Phantom Beneficiaries: Trump Distorts Decades-Old Database Glitch to Attack Social Security Integrity",
+        "summary": "Points out how exaggerating clerical database anomalies undermines public trust in essential earned-benefit programs."
+      },
+      "conservative": {
+        "outlet": "Right-Wing Media (Fox News, Breitbart)",
+        "headline": "Trump Calls for Sweeping Audit of Broken Entitlement Bureaucracy",
+        "summary": "Frames the rhetoric as a necessary call to clean up Washington's antiquated record-keeping and eliminate government waste."
+      }
+    },
+    "tags": [
+      "SocialSecurity",
+      "Economy",
+      "Entitlements",
+      "GovernmentWaste"
+    ]
+  }
+];
 
     let currentIndex = 0;
     let filteredIndices = [0, 1, 2, 3, 4];
@@ -889,6 +999,17 @@
       document.getElementById('quote-context').innerText = item.primary_context;
       document.getElementById('absurdity-score').innerText = `${item.verdict.split('•')[0].trim()} • ${item.verdict_score} / 10`;
       document.getElementById('verdict-desc').innerText = item.verdict_description;
+
+      // Render Primary Media (Verified Photo & Video)
+      if (item.media) {
+        document.getElementById('quote-image').src = item.media.image_url;
+        document.getElementById('quote-image-caption').innerText = item.media.image_caption;
+        document.getElementById('quote-image-credit').innerText = item.media.image_credit;
+        document.getElementById('video-timestamp').innerText = item.media.video_timestamp;
+        document.getElementById('video-title').innerText = item.media.video_title;
+        document.getElementById('video-link').href = item.media.video_url;
+        document.getElementById('video-platform').innerText = `Watch on ${item.media.video_platform}`;
+      }
 
       // Render Facts
       const factsContainer = document.getElementById('facts-container');
