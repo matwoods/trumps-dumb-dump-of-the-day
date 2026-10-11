@@ -142,9 +142,9 @@
         <div class="relative bg-white rounded-full p-2 border border-slate-300 shadow-sm flex items-center justify-between gap-3 focus-within:ring-2 focus-within:ring-gov-blue">
           <div class="flex items-center gap-2.5 pl-3 flex-1">
             <i data-lucide="search" class="w-4 h-4 text-slate-400 shrink-0"></i>
-            <input type="text" placeholder="Search archive (e.g. 'Micron', 'Lake America', 'Tariffs')..." class="w-full text-xs sm:text-sm bg-transparent outline-none text-slate-800 placeholder-slate-400">
+            <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Search 5-day archive (e.g. 'Micron', 'Lake America', 'Social Security', 'Nobel')..." class="w-full text-xs sm:text-sm bg-transparent outline-none text-slate-800 placeholder-slate-400">
           </div>
-          <button class="px-5 py-2 rounded-full bg-gov-navy hover:bg-gov-darkblue text-white text-xs font-semibold tracking-tight transition shrink-0">
+          <button onclick="handleSearch(document.getElementById('search-input').value)" class="px-5 py-2 rounded-full bg-gov-navy hover:bg-gov-darkblue text-white text-xs font-semibold tracking-tight transition shrink-0">
             Search
           </button>
         </div>
@@ -420,45 +420,8 @@
           Executive Discourse Archive
         </h3>
 
-        <div class="space-y-3" id="archive-list">
-          <!-- Item 1 (Selected) -->
-          <div onclick="loadQuote(0)" class="archive-item p-3.5 rounded-2xl bg-blue-50/70 border border-blue-300 cursor-pointer transition hover:bg-blue-50">
-            <div class="flex items-center justify-between text-[11px] mb-1">
-              <span class="text-gov-blue font-bold">Oct 10, 2026</span>
-              <span class="text-slate-500">Syracuse Rally</span>
-            </div>
-            <h4 class="text-xs font-bold text-gov-navy line-clamp-2">"I brought Micron here with my tariffs..."</h4>
-            <div class="flex items-center justify-between mt-2 text-[10px]">
-              <span class="text-gov-crimson font-bold uppercase">Pants On Fire</span>
-              <span class="text-slate-500 font-mono">Score: 9.4/10</span>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div onclick="loadQuote(1)" class="archive-item p-3.5 rounded-2xl bg-white border border-slate-200 cursor-pointer transition hover:bg-slate-50 hover:border-slate-300">
-            <div class="flex items-center justify-between text-[11px] mb-1">
-              <span class="text-slate-700 font-bold">Oct 9, 2026</span>
-              <span class="text-slate-500">Geography Rant</span>
-            </div>
-            <h4 class="text-xs font-bold text-gov-navy line-clamp-2">"Renaming Lake Ontario to 'Lake America'..."</h4>
-            <div class="flex items-center justify-between mt-2 text-[10px]">
-              <span class="text-amber-700 font-bold uppercase">Refuted by Treaty</span>
-              <span class="text-slate-500 font-mono">Score: 8.8/10</span>
-            </div>
-          </div>
-
-          <!-- Item 3 Mock -->
-          <div class="p-3.5 rounded-2xl bg-slate-50/60 border border-slate-100 opacity-60">
-            <div class="flex items-center justify-between text-[11px] mb-1">
-              <span class="text-slate-500 font-bold">Oct 7, 2026</span>
-              <span class="text-slate-400">Social Security</span>
-            </div>
-            <h4 class="text-xs font-semibold text-slate-600 line-clamp-2">"Millions of 120-year-olds getting illegal checks..."</h4>
-            <div class="flex items-center justify-between mt-2 text-[10px]">
-              <span class="text-slate-500 font-semibold uppercase">Debunked</span>
-              <span class="text-slate-400 font-mono">Score: 9.1/10</span>
-            </div>
-          </div>
+        <div class="space-y-2.5" id="archive-list">
+          <!-- Dynamically populated by renderArchiveList() -->
         </div>
       </div>
 
@@ -557,6 +520,68 @@
   <!-- App Script -->
   <script>
     const quotesData = [
+      {
+        "id": "2026-10-11-nobel-peace-prize",
+        "date": "2026-10-11",
+        "timestamp": "October 11, 2026 • 6:15 AM EDT",
+        "location": "Truth Social",
+        "claim_summary": "Claimed he stopped 6 or 7 wars in one night and was cheated out of the 2026 Nobel Peace Prize by 'corrupt globalists'.",
+        "quote": "\"The Nobel Committee is a complete disgrace! They gave the Peace Prize to someone nobody has ever heard of instead of me. I ended six wars, maybe seven, in one night. Nobody in the history of our country has brought more peace, but the corrupt globalists refuse to recognize it.\"",
+        "verdict": "CATEGORICALLY FALSE • SCORE: 9.7/10",
+        "verdict_score": 9.7,
+        "verdict_description": "Fictional. The 2026 Nobel Peace Prize was awarded to respected South African jurist Navi Pillay. Trump did not end 6 or 7 wars in one night; multiple international conflicts cited remained actively contested.",
+        "primary_context": "Early morning Truth Social post responding to the Norwegian Nobel Committee's 2026 peace prize announcement.",
+        "key_facts": [
+          {
+            "point": "Prize Awarded to Veteran Human Rights Leader",
+            "detail": "The Norwegian Nobel Committee awarded the 2026 Nobel Peace Prize to South African jurist Navi Pillay for lifetime anti-apartheid advocacy."
+          },
+          {
+            "point": "No 'Seven Wars Ended in One Night'",
+            "detail": "Independent foreign policy monitors and UN records confirm active military conflicts in Eastern Europe and the Middle East remained ongoing, with zero records of seven simultaneous peace resolutions."
+          },
+          {
+            "point": "Independent Committee Process",
+            "detail": "The Nobel Committee is appointed by the Norwegian Parliament and operates independently of US domestic politics or international trade disputes."
+          }
+        ],
+        "sources": [
+          {
+            "name": "Associated Press (AP)",
+            "badge": "Global Wire Verification",
+            "headline": "Nobel Peace Prize awarded to Navi Pillay as Trump protests omission on social media",
+            "url": "https://apnews.com",
+            "takeaway": "Details the Nobel Committee's formal citation and provides historical analysis disputing Trump's tally of resolved conflicts."
+          },
+          {
+            "name": "FactCheck.org",
+            "badge": "Independent Fact-Check",
+            "headline": "Trump's recurring claim of ending '6 or 7 wars in one night' examined",
+            "url": "https://www.factcheck.org",
+            "takeaway": "Categorizes the claim as completely false, showing that situations cited involved diplomatic phone calls rather than ended wars."
+          },
+          {
+            "name": "The Nobel Foundation Archive",
+            "badge": "Primary Organization Document",
+            "headline": "The Nobel Peace Prize 2026: Official Announcement and Citation",
+            "url": "https://www.nobelprize.org",
+            "takeaway": "Primary citation recognizing Navi Pillay's decades-long leadership in international justice and human rights law."
+          }
+        ],
+        "media_framing": {
+          "critical": {
+            "outlet": "Mainstream & Foreign Policy Press (NYT, Reuters, BBC)",
+            "headline": "Vanity Over Diplomacy: Trump Lashes Out at Nobel Committee Over Lifetime Recognition of Anti-Apartheid Hero",
+            "summary": "Focuses on the bizarre assertion of ending seven wars overnight, framing the post as an egocentric distraction from complex international negotiations."
+          },
+          "conservative": {
+            "outlet": "Conservative Media & Truth Social Amplifiers (Fox News, Sky News)",
+            "headline": "Trump Slams Elitist Nobel Snub, Citing Historic De-escalation Record Overseas",
+            "summary": "Presents Trump's frustration as justified pushback against a perceived liberal European establishment that routinely ignores America First foreign policy breakthroughs."
+          }
+        },
+        "tags": ["#ForeignPolicy", "#NobelPrize", "#TruthSocial", "#Diplomacy"]
+      },
       {
         "id": "2026-10-10-micron-tariffs",
         "date": "2026-10-10",
@@ -680,20 +705,189 @@
           }
         },
         "tags": ["#ForeignPolicy", "#Canada", "#Geography", "#ExecutiveOrders"]
+      },
+      {
+        "id": "2026-10-08-tariff-military-bonuses",
+        "date": "2026-10-08",
+        "timestamp": "October 8, 2026 • San Antonio, TX",
+        "location": "San Antonio, TX",
+        "claim_summary": "Claimed military service member bonuses were paid directly from billions collected from foreign tariffs.",
+        "quote": "\"Every soldier is getting a massive bonus this month, paid 100% by the billions pouring in from our foreign tariffs. China and foreign countries are paying our military bonuses directly.\"",
+        "verdict": "DEBUNKED BY BUDGET DATA • SCORE: 9.2/10",
+        "verdict_score": 9.2,
+        "verdict_description": "False. Tariff receipts flow into the general US Treasury fund, not a defense bonus account. Pentagon records confirm bonus checks were funded by reallocating existing DoD housing allowance funds.",
+        "primary_context": "Campaign speech delivered to veterans and military families in San Antonio, Texas.",
+        "key_facts": [
+          {
+            "point": "Funded by Housing Offsets, Not Tariffs",
+            "detail": "Department of Defense budget transfers confirm military bonus payments were offset by reprogramming $1.2B in surplus military housing allowance allocations."
+          },
+          {
+            "point": "Tariffs Do Not Fund Specific Programs",
+            "detail": "Under federal budget law (Title 19), customs duties are deposited into the general fund of the Treasury and cannot be directly earmarked for executive bonuses without Congressional appropriation."
+          },
+          {
+            "point": "Tariffs Are Paid by US Importers",
+            "detail": "Every major economic study and customs documentation confirms tariffs are paid upon port entry by American importers, not foreign treasuries."
+          }
+        ],
+        "sources": [
+          {
+            "name": "Military Times",
+            "badge": "Defense Reporting",
+            "headline": "Fact check: Where the money for recent military bonuses actually came from",
+            "url": "https://www.militarytimes.com",
+            "takeaway": "Confirms Pentagon funding documents show money was shifted internally from personnel accounts, not foreign tariffs."
+          },
+          {
+            "name": "Congressional Budget Office (CBO)",
+            "badge": "Official Federal Agency",
+            "headline": "Monthly Budget Review: Customs Duties and General Fund Inflows",
+            "url": "https://www.cbo.gov",
+            "takeaway": "Official records demonstrating all customs revenue flows to the general fund with no discrete military bonus account."
+          },
+          {
+            "name": "FactCheck.org",
+            "badge": "Independent Fact-Check",
+            "headline": "Trump revives false claim that foreign nations directly fund US troop bonuses",
+            "url": "https://www.factcheck.org",
+            "takeaway": "Deconstructs the mechanism of tariffs and highlights that American consumers and businesses bear the duty payments."
+          }
+        ],
+        "media_framing": {
+          "critical": {
+            "outlet": "Mainstream & Defense Watchdogs (Defense News, CNN)",
+            "headline": "Budget Sleight of Hand: Trump Falsely Attributes Routine DoD Housing Reallocations to Tariff Windfalls",
+            "summary": "Emphasizes the misleading fiscal accounting that hides internal military budget shifts behind populist trade claims."
+          },
+          "conservative": {
+            "outlet": "Conservative Outlets (Fox Business, Daily Wire)",
+            "headline": "Trump Delivers for Troops: Aggressive Trade Stance Bolsters Defense Morale",
+            "summary": "Highlights the popular military bonus rollout as evidence that Trump's broader economic protectionism strengthens national defense."
+          }
+        },
+        "tags": ["#Military", "#Tariffs", "#Economy", "#FederalBudget"]
+      },
+      {
+        "id": "2026-10-07-social-security-120-years-old",
+        "date": "2026-10-07",
+        "timestamp": "October 7, 2026 • Omaha Arena Speech, NE",
+        "location": "Omaha, NE",
+        "claim_summary": "Claimed millions of 120-year-olds are actively collecting illegal Social Security payments every month.",
+        "quote": "\"We have millions and millions of people who are 120, 130 years old, dead for fifty years, collecting Social Security checks every single month. Millions of illegal checks going to dead people!\"",
+        "verdict": "WILDLY FICTIONAL • SCORE: 9.6/10",
+        "verdict_score": 9.6,
+        "verdict_description": "Completely false. The Social Security Administration's Inspector General confirmed zero monthly benefit payments are issued to individuals over 120. The claim distorts legacy database records with no recorded death date.",
+        "primary_context": "Campaign address in Nebraska focusing on federal spending, waste, and entitlements.",
+        "key_facts": [
+          {
+            "point": "Zero Active Payments to Super-Centenarians",
+            "detail": "Social Security Administration audit records show zero monthly benefit checks are issued to individuals listed as over 120 years old."
+          },
+          {
+            "point": "Confusion Between Database Entries & Checks",
+            "detail": "The figure originates from historical Social Security Number databases created before the 1970s where deceased holders were never marked with death dates, not an active check payment list."
+          },
+          {
+            "point": "Automated Death Master File Safeguards",
+            "detail": "The SSA cross-checks state vital statistics and financial institutions monthly, automatically suspending accounts upon death reports."
+          }
+        ],
+        "sources": [
+          {
+            "name": "CBS News",
+            "badge": "Investigative Analysis",
+            "headline": "Fact-checking Trump's claim that millions over 120 are getting Social Security checks",
+            "url": "https://www.cbsnews.com",
+            "takeaway": "Interviews SSA actuaries who clarify that inactive numbers in a computerized registry do not equal dispatched checks."
+          },
+          {
+            "name": "Social Security Administration OIG",
+            "badge": "Official Federal Audit",
+            "headline": "Audit Report: Accuracy of the Death Master File and Centenarian Records",
+            "url": "https://oig.ssa.gov",
+            "takeaway": "Primary federal audit establishing that no payments were sent to individuals 120 and older with missing death records."
+          },
+          {
+            "name": "PolitiFact",
+            "badge": "Independent Fact-Check",
+            "headline": "Are 'millions of 120-year-olds' receiving Social Security checks? Pants on Fire.",
+            "url": "https://www.politifact.com",
+            "takeaway": "Rates claim 'Pants on Fire' — conflates inactive electronic database records with actual financial disbursements."
+          }
+        ],
+        "media_framing": {
+          "critical": {
+            "outlet": "Mainstream & Fact-Checking Press (WaPo, MSNBC, Forbes)",
+            "headline": "Phantom Beneficiaries: Trump Distorts Decades-Old Database Glitch to Attack Social Security Integrity",
+            "summary": "Points out how exaggerating clerical database anomalies undermines public trust in essential earned-benefit programs."
+          },
+          "conservative": {
+            "outlet": "Right-Wing Media (Fox News, Breitbart)",
+            "headline": "Trump Calls for Sweeping Audit of Broken Entitlement Bureaucracy",
+            "summary": "Frames the rhetoric as a necessary call to clean up Washington's antiquated record-keeping and eliminate government waste."
+          }
+        },
+        "tags": ["#SocialSecurity", "#Economy", "#Entitlements", "#GovernmentWaste"]
       }
     ];
 
     let currentIndex = 0;
+    let filteredIndices = [0, 1, 2, 3, 4];
+
+    function renderArchiveList() {
+      const container = document.getElementById('archive-list');
+      if (!container) return;
+
+      if (filteredIndices.length === 0) {
+        container.innerHTML = '<div class="text-xs text-slate-400 p-4 text-center">No statements match your search criteria.</div>';
+        return;
+      }
+
+      container.innerHTML = filteredIndices.map(idx => {
+        const item = quotesData[idx];
+        const isSelected = idx === currentIndex;
+        return `
+          <div onclick="loadQuote(${idx})" class="archive-item p-3.5 rounded-2xl cursor-pointer transition ${
+            isSelected ? 'bg-blue-50/80 border-2 border-gov-blue shadow-xs' : 'bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+          }">
+            <div class="flex items-center justify-between text-[11px] mb-1">
+              <span class="font-bold ${isSelected ? 'text-gov-blue' : 'text-slate-700'}">${item.date}</span>
+              <span class="text-slate-500">${item.location}</span>
+            </div>
+            <h4 class="text-xs font-bold text-gov-navy line-clamp-2">${item.claim_summary}</h4>
+            <div class="flex items-center justify-between mt-2 text-[10px]">
+              <span class="font-black uppercase text-gov-crimson">${item.verdict.split('•')[0].trim()}</span>
+              <span class="text-slate-500 font-mono font-semibold">Score: ${item.verdict_score}/10</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function handleSearch(query) {
+      const q = (query || '').toLowerCase().trim();
+      if (!q) {
+        filteredIndices = quotesData.map((_, i) => i);
+      } else {
+        filteredIndices = quotesData.map((item, i) => {
+          const haystack = `${item.quote} ${item.claim_summary} ${item.location} ${item.tags.join(' ')} ${item.date}`.toLowerCase();
+          return haystack.includes(q) ? i : -1;
+        }).filter(i => i !== -1);
+      }
+      renderArchiveList();
+    }
 
     function renderCurrentQuote() {
       const item = quotesData[currentIndex];
       if (!item) return;
 
+      document.getElementById('current-date-badge').innerText = item.date;
       document.getElementById('quote-timestamp').innerText = item.timestamp;
       document.getElementById('verdict-tag').innerHTML = `<i data-lucide="alert-triangle" class="w-4 h-4"></i> ${item.verdict}`;
       document.getElementById('quote-text').innerText = item.quote;
       document.getElementById('quote-context').innerText = item.primary_context;
-      document.getElementById('absurdity-score').innerText = `Categorically False • ${item.verdict_score} / 10`;
+      document.getElementById('absurdity-score').innerText = `${item.verdict.split('•')[0].trim()} • ${item.verdict_score} / 10`;
       document.getElementById('verdict-desc').innerText = item.verdict_description;
 
       // Render Facts
@@ -738,6 +932,7 @@
         <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">${t}</span>
       `).join('');
 
+      renderArchiveList();
       lucide.createIcons();
     }
 
@@ -757,15 +952,7 @@
     function loadQuote(index) {
       currentIndex = index;
       renderCurrentQuote();
-      document.querySelectorAll('.archive-item').forEach((item, i) => {
-        if (i === index) {
-          item.classList.add('bg-blue-50/70', 'border-blue-300');
-          item.classList.remove('bg-white', 'border-slate-200');
-        } else {
-          item.classList.remove('bg-blue-50/70', 'border-blue-300');
-          item.classList.add('bg-white', 'border-slate-200');
-        }
-      });
+      window.scrollTo({ top: 380, behavior: 'smooth' });
     }
 
     function toggleModal(id) {
@@ -793,6 +980,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       renderCurrentQuote();
+      renderArchiveList();
       lucide.createIcons();
     });
   </script>
