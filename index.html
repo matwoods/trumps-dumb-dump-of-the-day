@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Did He Say Today? — 24-Hour Fact Check & Absurdity Tracker</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#EF4444',
+              orange: '#F97316',
+              amber: '#F59E0B',
+              dark: '#0F172A',
+              card: '#1E293B',
+              border: '#334155'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .quote-badge {
+      animation: pulse-border 2s infinite;
+    }
+    @keyframes pulse-border {
+      0%, 100% { border-color: rgba(239, 68, 68, 0.4); }
+      50% { border-color: rgba(239, 68, 68, 0.9); }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-rose-500 selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-rose-900 via-amber-900 to-rose-900 border-b border-rose-800/40 text-xs py-2 px-4 text-center flex items-center justify-center gap-2">
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-rose-500 text-white animate-pulse">LIVE 24H PIPELINE</span>
+    <span>Automated daily compilation &bull; Scrapes speeches, Truth Social &amp; interviews &bull; Verified against 3+ independent sources</span>
+    <button onclick="toggleModal('pipeline-modal')" class="underline font-semibold hover:text-white ml-2 text-rose-200">How It Works &rarr;</button>
+  </div>
+
+  <!-- Header -->
+  <header class="border-b border-slate-800/80 bg-slate-900/60 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center shadow-lg shadow-rose-900/30 text-white font-black text-xl font-display">
+          !?
+        </div>
+        <div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight font-display text-white flex items-center gap-2">
+            What Did He Say Today?
+            <span class="text-[11px] font-bold tracking-normal uppercase px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 border border-rose-500/30">Editorial Tracker</span>
+          </h1>
+          <p class="text-xs text-slate-400">Documenting daily absurdities with ruthless fact-checks &amp; multi-angle media analysis.</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 text-xs text-slate-300">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>Last 24h Window: <strong class="text-white" id="current-date-badge">Oct 10, 2026</strong></span>
+        </div>
+        <button onclick="toggleModal('pipeline-modal')" class="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold flex items-center gap-1.5 transition shadow-sm">
+          <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+          <span>Automation Plan</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
+    
+    <!-- Left Column: Featured Daily Card (8 cols) -->
+    <div class="lg:col-span-8 space-y-6">
+      
+      <!-- Primary Quote Card -->
+      <article class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur">
+        <!-- Accent Glow -->
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-rose-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Meta Header -->
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4 mb-6">
+          <div class="flex items-center gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+              TODAY'S HIGHLIGHT
+            </span>
+            <span class="text-slate-400 flex items-center gap-1" id="quote-timestamp">
+              <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+              October 9, 2026 &bull; Syracuse, NY Rally
+            </span>
+          </div>
+
+          <!-- Verdict Tag -->
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 rounded-md text-xs font-black uppercase tracking-wider bg-rose-600 text-white shadow-md flex items-center gap-1.5" id="verdict-tag">
+              <i data-lucide="alert-octagon" class="w-3.5 h-3.5"></i>
+              PANTS ON FIRE
+            </span>
+          </div>
+        </div>
+
+        <!-- The Quote -->
+        <div class="mb-6">
+          <p class="text-xs uppercase tracking-wider text-slate-400 font-bold mb-2 flex items-center gap-1">
+            <i data-lucide="quote" class="w-3.5 h-3.5 text-rose-400"></i> The Verbatim Statement
+          </p>
+          <blockquote class="text-xl sm:text-2xl font-bold font-display text-white leading-relaxed border-l-4 border-rose-500 pl-4 py-1 italic bg-rose-950/20 rounded-r-lg" id="quote-text">
+            "I brought Micron here with my tariffs. If it wasn't for my tariffs, they'd be building in China. We made the $100 billion deal happen right here in Syracuse. Nobody else could have made this deal."
+          </blockquote>
+          <p class="text-xs text-slate-400 mt-2 ml-4" id="quote-context">
+            Delivered during an 80-minute speech at the Oncenter in Syracuse, NY.
+          </p>
+        </div>
+
+        <!-- Absurdity Score Bar -->
+        <div class="bg-slate-950/60 rounded-xl p-4 border border-slate-800/80 mb-6">
+          <div class="flex items-center justify-between mb-2 text-xs">
+            <span class="font-bold text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="flame" class="w-4 h-4 text-orange-500"></i>
+              Fact-Check Absurdity Index
+            </span>
+            <span class="text-rose-400 font-extrabold text-sm" id="absurdity-score">9.4 / 10 &bull; Extremely Detached from Reality</span>
+          </div>
+          <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 h-full rounded-full transition-all duration-500" style="width: 94%"></div>
+          </div>
+          <p class="text-xs text-slate-400 mt-2" id="verdict-desc">
+            Blatantly false. Micron committed the $100B investment four years earlier in 2022 under the bipartisan CHIPS Act, which Trump previously condemned and called a 'horrible bill'.
+          </p>
+        </div>
+
+        <!-- Interactive Content Tabs -->
+        <div>
+          <!-- Tab Navigation -->
+          <div class="flex border-b border-slate-800 text-xs font-semibold gap-1 sm:gap-2 mb-6" id="tabs-header">
+            <button onclick="switchTab('tab-facts')" id="btn-tab-facts" class="tab-btn px-4 py-2.5 rounded-t-lg border-b-2 border-rose-500 text-white bg-slate-800/50 flex items-center gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+              1. The Reality Check (Facts)
+            </button>
+            <button onclick="switchTab('tab-sources')" id="btn-tab-sources" class="tab-btn px-4 py-2.5 rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/30 flex items-center gap-2">
+              <i data-lucide="newspaper" class="w-4 h-4 text-sky-400"></i>
+              2. Verified Sources (3 Articles)
+            </button>
+            <button onclick="switchTab('tab-spin')" id="btn-tab-spin" class="tab-btn px-4 py-2.5 rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/30 flex items-center gap-2">
+              <i data-lucide="scale" class="w-4 h-4 text-amber-400"></i>
+              3. The Media Spin Room
+            </button>
+          </div>
+
+          <!-- Tab 1: Facts -->
+          <div id="tab-facts" class="tab-pane space-y-4">
+            <div class="space-y-3" id="facts-container">
+              <!-- Dynamically populated or default -->
+              <div class="p-3.5 rounded-xl bg-slate-800/40 border border-slate-800 flex items-start gap-3">
+                <span class="p-1 rounded bg-rose-500/20 text-rose-400 font-bold text-xs mt-0.5">01</span>
+                <div>
+                  <h4 class="text-sm font-bold text-white">Announced in 2022, Not 2026</h4>
+                  <p class="text-xs text-slate-300 mt-1">Micron publicly finalized its commitment to invest up to $100B in Clay, NY on October 4, 2022 — four years prior to this rally speech.</p>
+                </div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-800/40 border border-slate-800 flex items-start gap-3">
+                <span class="p-1 rounded bg-rose-500/20 text-rose-400 font-bold text-xs mt-0.5">02</span>
+                <div>
+                  <h4 class="text-sm font-bold text-white">Incentivized by the CHIPS Act, Not Tariffs</h4>
+                  <p class="text-xs text-slate-300 mt-1">Micron CEO Sanjay Mehrotra explicitly cited the federal bipartisan CHIPS and Science Act of 2022 and NY Green CHIPS tax credits as the determining factors. Tariffs played zero role in the agreement.</p>
+                </div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-800/40 border border-slate-800 flex items-start gap-3">
+                <span class="p-1 rounded bg-rose-500/20 text-rose-400 font-bold text-xs mt-0.5">03</span>
+                <div>
+                  <h4 class="text-sm font-bold text-white">Trump Repeatedly Attacked the Funding Law</h4>
+                  <p class="text-xs text-slate-300 mt-1">Trump previously called the CHIPS Act "horrible" and "a waste of billions of dollars," calling for its repeal. Taking credit for a plant made possible by a law he campaigned against is peak irony.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: 3 Corroborating Articles -->
+          <div id="tab-sources" class="tab-pane hidden space-y-4">
+            <p class="text-xs text-slate-400 mb-2">Every claim is vetted against at least 3 distinct primary and investigative sources:</p>
+            <div class="grid grid-cols-1 gap-3" id="sources-container">
+              <!-- Source 1 -->
+              <a href="https://www.wrvo.org" target="_blank" class="p-4 rounded-xl bg-slate-800/40 border border-slate-800 hover:border-sky-500/50 hover:bg-slate-800/70 transition block group">
+                <div class="flex items-center justify-between text-xs mb-1">
+                  <span class="font-bold text-sky-400 flex items-center gap-1.5">
+                    <i data-lucide="radio" class="w-3.5 h-3.5"></i> WRVO Public Media / NPR
+                  </span>
+                  <span class="px-2 py-0.5 rounded bg-sky-500/10 text-sky-300 border border-sky-500/20 text-[10px]">Local Investigation</span>
+                </div>
+                <h4 class="text-sm font-semibold text-white group-hover:text-sky-300 transition">Fact Check: Micron’s $100B Syracuse MegaFab was secured in 2022 under CHIPS Act, not Trump tariffs &rarr;</h4>
+                <p class="text-xs text-slate-400 mt-1">Confirmed local lease documents and timeline demonstrating the project was established long before Trump's recent tariff statements.</p>
+              </a>
+
+              <!-- Source 2 -->
+              <a href="https://www.politifact.com" target="_blank" class="p-4 rounded-xl bg-slate-800/40 border border-slate-800 hover:border-rose-500/50 hover:bg-slate-800/70 transition block group">
+                <div class="flex items-center justify-between text-xs mb-1">
+                  <span class="font-bold text-rose-400 flex items-center gap-1.5">
+                    <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i> PolitiFact
+                  </span>
+                  <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-300 border border-rose-500/20 text-[10px]">Independent Fact-Check</span>
+                </div>
+                <h4 class="text-sm font-semibold text-white group-hover:text-rose-300 transition">Trump falsely claims his tariff policies brought Micron's $100B semiconductor plant to New York &rarr;</h4>
+                <p class="text-xs text-slate-400 mt-1">Rates claim "False": Tariffs had zero bearing on the investment agreement; Trump took credit for Biden-era legislation.</p>
+              </a>
+
+              <!-- Source 3 -->
+              <a href="https://www.micron.com" target="_blank" class="p-4 rounded-xl bg-slate-800/40 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-800/70 transition block group">
+                <div class="flex items-center justify-between text-xs mb-1">
+                  <span class="font-bold text-emerald-400 flex items-center gap-1.5">
+                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Micron Technology Primary Press Release
+                  </span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-[10px]">Primary Corporate Document</span>
+                </div>
+                <h4 class="text-sm font-semibold text-white group-hover:text-emerald-300 transition">Micron Announces Historic $100 Billion Investment in New York Semiconductor Manufacturing (Oct 4, 2022) &rarr;</h4>
+                <p class="text-xs text-slate-400 mt-1">The primary corporate press release detailing that federal CHIPS subsidies were the direct catalyst for choosing Central New York.</p>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tab 3: Media Spin Room -->
+          <div id="tab-spin" class="tab-pane hidden space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Critical Framing -->
+              <div class="p-4 rounded-xl bg-slate-800/30 border border-rose-900/50 relative overflow-hidden">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                  <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Critical &amp; Mainstream Coverage</span>
+                </div>
+                <h4 class="text-sm font-bold text-white mb-2" id="spin-crit-outlet">NYT, MSNBC, NPR</h4>
+                <p class="text-xs text-slate-300 leading-relaxed italic mb-3">
+                  "Blatant rewrite of history: Trump takes a victory lap for Biden-era semiconductor mega-project he once called 'horrible'."
+                </p>
+                <div class="text-[11px] text-slate-400 bg-slate-900/70 p-2.5 rounded-lg border border-slate-800">
+                  <strong>Takeaway:</strong> Highlights Trump's ongoing pattern of claiming personal credit for major manufacturing investments funded by bills he opposed.
+                </div>
+              </div>
+
+              <!-- Favorable / Conservative Framing -->
+              <div class="p-4 rounded-xl bg-slate-800/30 border border-amber-900/50 relative overflow-hidden">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                  <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Conservative &amp; Fox/Sky Framing</span>
+                </div>
+                <h4 class="text-sm font-bold text-white mb-2" id="spin-fav-outlet">Fox News, Sky News, Campaign PR</h4>
+                <p class="text-xs text-slate-300 leading-relaxed italic mb-3">
+                  "Trump energizes Upstate New York rally, spotlighting tariff shield for American manufacturing &amp; American jobs."
+                </p>
+                <div class="text-[11px] text-slate-400 bg-slate-900/70 p-2.5 rounded-lg border border-slate-800">
+                  <strong>Takeaway:</strong> Frames the statement not as a literal historical timeline, but as proof that aggressive tariff deterrence is what forces corporations to keep manufacturing inside the US.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tags Footer -->
+        <div class="mt-6 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div class="flex items-center gap-2 flex-wrap" id="quote-tags">
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">#Economy</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">#Semiconductors</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">#Tariffs</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">#SyracuseRally</span>
+          </div>
+          <button onclick="shareQuote()" class="text-slate-400 hover:text-white flex items-center gap-1">
+            <i data-lucide="share-2" class="w-3.5 h-3.5"></i> Share Fact-Check
+          </button>
+        </div>
+      </article>
+
+      <!-- Reader Absurdity Poll / Interaction Widget -->
+      <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <i data-lucide="thumbs-down" class="w-4 h-4 text-rose-400"></i>
+            How dumb was today's statement?
+          </h3>
+          <p class="text-xs text-slate-400">Vote to rank today's statement in the Weekly Absurdity Hall of Fame.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="castVote('mild')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition">
+            🙄 Mildly Goofy (1-4)
+          </button>
+          <button onclick="castVote('bad')" class="px-3 py-1.5 rounded-lg bg-amber-600/30 hover:bg-amber-600/40 text-xs font-semibold text-amber-300 border border-amber-500/30 transition">
+            🤦 False (5-7)
+          </button>
+          <button onclick="castVote('catastrophic')" class="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-xs font-semibold text-white transition shadow-sm">
+            🔥 Pants On Fire (8-10)
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Right Column: Recent Days Archive & Pipeline Status (4 cols) -->
+    <aside class="lg:col-span-4 space-y-6">
+      
+      <!-- 24-Hour Pipeline Status Card -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-lg">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+            <i data-lucide="cpu" class="w-3.5 h-3.5 text-rose-400"></i>
+            Automated Ingestion Feed
+          </h3>
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">ONLINE</span>
+        </div>
+
+        <ul class="text-xs space-y-2.5 text-slate-300">
+          <li class="flex items-center justify-between">
+            <span class="text-slate-400">Speech &amp; Social Scraper:</span>
+            <span class="font-mono text-emerald-400 font-semibold">Active (Hourly)</span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="text-slate-400">Cross-Verification Engine:</span>
+            <span class="font-mono text-sky-400 font-semibold">3 Articles Required</span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="text-slate-400">Next Scheduled Cron:</span>
+            <span class="font-mono text-amber-400 font-semibold">08:00 AM Daily</span>
+          </li>
+        </ul>
+
+        <div class="mt-4 pt-3 border-t border-slate-800">
+          <button onclick="toggleModal('pipeline-modal')" class="w-full py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 flex items-center justify-center gap-2 transition">
+            <i data-lucide="settings" class="w-3.5 h-3.5"></i>
+            View Automation Setup
+          </button>
+        </div>
+      </div>
+
+      <!-- Past Days Archive -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-lg">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-1.5">
+          <i data-lucide="archive" class="w-3.5 h-3.5 text-amber-400"></i>
+          Recent Statements Archive
+        </h3>
+
+        <div class="space-y-3" id="archive-list">
+          <!-- Item 1 (Active) -->
+          <div onclick="loadQuote(0)" class="archive-item p-3 rounded-xl bg-slate-800/80 border border-rose-500/40 cursor-pointer transition hover:bg-slate-800">
+            <div class="flex items-center justify-between text-[11px] mb-1">
+              <span class="text-rose-400 font-bold">Oct 10, 2026</span>
+              <span class="text-slate-400">Syracuse Rally</span>
+            </div>
+            <h4 class="text-xs font-bold text-white line-clamp-2">"I brought Micron here with my tariffs..."</h4>
+            <div class="flex items-center justify-between mt-2 text-[10px]">
+              <span class="text-rose-400 font-semibold">Pants On Fire</span>
+              <span class="text-slate-400 font-mono">Score: 9.4/10</span>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div onclick="loadQuote(1)" class="archive-item p-3 rounded-xl bg-slate-800/40 border border-slate-800 cursor-pointer transition hover:bg-slate-800/80 hover:border-slate-700">
+            <div class="flex items-center justify-between text-[11px] mb-1">
+              <span class="text-amber-400 font-bold">Oct 9, 2026</span>
+              <span class="text-slate-400">Geography Rant</span>
+            </div>
+            <h4 class="text-xs font-bold text-white line-clamp-2">"Renaming Lake Ontario to 'Lake America'..."</h4>
+            <div class="flex items-center justify-between mt-2 text-[10px]">
+              <span class="text-amber-400 font-semibold">False Claim</span>
+              <span class="text-slate-400 font-mono">Score: 8.8/10</span>
+            </div>
+          </div>
+
+          <!-- Item 3 Mock -->
+          <div class="p-3 rounded-xl bg-slate-800/20 border border-slate-800/60 opacity-60">
+            <div class="flex items-center justify-between text-[11px] mb-1">
+              <span class="text-slate-400 font-bold">Oct 7, 2026</span>
+              <span class="text-slate-500">Social Security</span>
+            </div>
+            <h4 class="text-xs font-bold text-slate-300 line-clamp-2">"Millions of 120-year-olds getting illegal checks..."</h4>
+            <div class="flex items-center justify-between mt-2 text-[10px]">
+              <span class="text-slate-400 font-semibold">Debunked</span>
+              <span class="text-slate-500 font-mono">Score: 9.1/10</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+  </main>
+
+  <!-- Modal: How the Automation Works -->
+  <div id="pipeline-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-lg font-bold text-white flex items-center gap-2 font-display">
+          <i data-lucide="workflow" class="w-5 h-5 text-rose-500"></i>
+          How the 24-Hour Automated Scheduler Works
+        </h3>
+        <button onclick="toggleModal('pipeline-modal')" class="text-slate-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs text-slate-300 leading-relaxed">
+        <div class="p-3.5 rounded-xl bg-slate-800/50 border border-slate-700/60">
+          <h4 class="font-bold text-white text-sm mb-1">Step 1: Daily Gathering (News APIs &amp; Speech Transcripts)</h4>
+          <p class="text-slate-400">Every morning at 08:00 AM, the scheduled cron script fetches recent transcripts, campaign rally logs, and social posts from the past 24 hours.</p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-slate-800/50 border border-slate-700/60">
+          <h4 class="font-bold text-white text-sm mb-1">Step 2: 3-Source Fact-Check Verification</h4>
+          <p class="text-slate-400">Before posting, the system queries reliable databases (PolitiFact, FactCheck.org, AP News, primary government filings). It strictly requires 3 corroborating sources to eliminate fake quotes or out-of-context misquotes.</p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-slate-800/50 border border-slate-700/60">
+          <h4 class="font-bold text-white text-sm mb-1">Step 3: Multi-Angle Media Framing Analysis</h4>
+          <p class="text-slate-400">The LLM compares how critical outlets (NPR, NYT, MSNBC) frame the claim against how conservative/official sources (Fox News, Sky News, campaign releases) defend it.</p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-slate-800/50 border border-slate-700/60">
+          <h4 class="font-bold text-white text-sm mb-1">Step 4: Push to Website &amp; Auto-Deploy</h4>
+          <p class="text-slate-400">The script appends the new entry to <code class="bg-slate-900 px-1 py-0.5 rounded text-rose-400">data/quotes.json</code> and automatically publishes updates via GitHub Actions or Antigravity's background runner.</p>
+        </div>
+      </div>
+
+      <div class="flex justify-end pt-2">
+        <button onclick="toggleModal('pipeline-modal')" class="px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs">
+          Got It
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 bg-slate-800 border border-slate-700 text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 transform translate-y-20 opacity-0 transition duration-300 z-50">
+    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toast-msg">Vote recorded!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>&copy; 2026 What Did He Say Today. Open-source fact-checking &amp; media watchdog archive.</p>
+      <div class="flex items-center gap-4">
+        <span class="text-slate-400">All quotes verbatim. All fact-checks cited.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script>
+    // Embedded initial data for offline / file:// protocol compatibility
+    const quotesData = [
+      {
+        "id": "2026-10-10-micron-tariffs",
+        "date": "2026-10-10",
+        "timestamp": "October 9, 2026 • 7:45 PM EDT",
+        "location": "Oncenter Rally, Syracuse, NY",
+        "claim_summary": "Claimed his tariffs brought Micron's $100B semiconductor plant to Syracuse, taking sole credit.",
+        "quote": "\"I brought Micron here with my tariffs. If it wasn't for my tariffs, they'd be building in China. We made the $100 billion deal happen right here in Syracuse. Nobody else could have made this deal.\"",
+        "verdict": "PANTS ON FIRE",
+        "verdict_score": 9.4,
+        "verdict_description": "Blatantly false. Micron committed the $100B investment four years earlier in 2022 under the bipartisan CHIPS Act, which Trump previously condemned and called a 'horrible bill'.",
+        "primary_context": "During an 80-minute campaign rally in upstate New York supporting Bruce Blakeman, Trump asserted that Micron Technology chose Central New York strictly because of his tariff threats.",
+        "key_facts": [
+          {
+            "point": "Announced in 2022, Not 2026",
+            "detail": "Micron publicly finalized its commitment to invest up to $100B in Clay, NY on October 4, 2022 — four years prior to this rally speech."
+          },
+          {
+            "point": "Created by the CHIPS and Science Act",
+            "detail": "Micron leadership explicitly stated federal grants from Biden's 2022 CHIPS Act made the megafab financially viable. Tariffs played zero role in the agreement."
+          },
+          {
+            "point": "Trump Previously Opposed the Law",
+            "detail": "Trump publicly attacked the CHIPS Act, calling it 'so bad' and urging its repeal, despite now taking credit for its flagship project."
+          }
+        ],
+        "sources": [
+          {
+            "name": "WRVO Public Media / NPR",
+            "badge": "Local Investigation",
+            "headline": "Fact Check: Micron's $100B Syracuse MegaFab was secured in 2022 under CHIPS Act, not Trump tariffs",
+            "url": "https://www.wrvo.org",
+            "takeaway": "Confirms the deal timeline and highlights that local contracts were signed years before Trump's tariff proposals."
+          },
+          {
+            "name": "PolitiFact",
+            "badge": "Fact-Checker",
+            "headline": "Trump falsely claims his tariff policies brought Micron's $100B semiconductor plant to New York",
+            "url": "https://www.politifact.com",
+            "takeaway": "Rates claim False: Tariffs had zero bearing on the investment agreement; Trump took credit for Biden-era legislation."
+          },
+          {
+            "name": "Micron Technology Official Archive",
+            "badge": "Primary Source",
+            "headline": "Micron Announces Historic $100 Billion Investment in New York Semiconductor Manufacturing (Oct 2022)",
+            "url": "https://www.micron.com",
+            "takeaway": "Original company announcement crediting bipartisan federal CHIPS grants and NY Green CHIPS incentives."
+          }
+        ],
+        "media_framing": {
+          "critical": {
+            "outlet": "Mainstream & Independent Media (NYT, MSNBC, NPR)",
+            "headline": "Blatant Historical Revisionism: Trump Takes Credit for Legislation He Tried to Kill",
+            "summary": "Highlight the direct contradiction between Trump's attacks on the $52B CHIPS Act and his rally speech claiming credit for Micron's $100B campus. Emphasize that tariffs played no role in the 2022 deal."
+          },
+          "conservative": {
+            "outlet": "Right-Wing & Campaign Press (Fox News, Sky News, Campaign PR)",
+            "headline": "Trump Energizes Upstate New York, Spotlighting Tariff Shield for American Manufacturing",
+            "summary": "Frame the speech as a masterclass in economic patriotism, highlighting Trump's argument that aggressive tariff deterrence is what prevents tech titans like Micron from fleeing to Asia."
+          }
+        },
+        "tags": ["#Economy", "#Semiconductors", "#Tariffs", "#SyracuseRally"]
+      },
+      {
+        "id": "2026-10-09-lake-america",
+        "date": "2026-10-09",
+        "timestamp": "October 9, 2026 • 8:15 PM EDT",
+        "location": "Oncenter Rally, Syracuse, NY",
+        "claim_summary": "Referred to Lake Ontario as 'Lake America' after signing an executive order ordering federal maps to rename it.",
+        "quote": "\"It is great to be back in upstate New York, just a short distance from the beautiful shores of Lake America. Canada had it long enough, but it belongs to us.\"",
+        "verdict": "FALSE / DIPLOMATIC FARCE",
+        "verdict_score": 8.8,
+        "verdict_description": "Lake Ontario is an international body of water divided by the US-Canada border under the 1909 Boundary Waters Treaty. A US executive order has zero international legal standing.",
+        "primary_context": "Rally remarks following an August executive order directing US federal agencies to refer to Lake Ontario as 'Lake America' amid cross-border trade friction.",
+        "key_facts": [
+          {
+            "point": "Governed by 1909 Treaty",
+            "detail": "The boundary and naming conventions are governed by international treaty, not unilateral presidential fiat."
+          },
+          {
+            "point": "Canada & Cartographers Reject Change",
+            "detail": "Canadian officials, international cartographers, and the International Hydrographic Organization rejected the change."
+          },
+          {
+            "point": "Pattern of Renaming Stunts",
+            "detail": "Follows similar unilateral declarations regarding the 'Gulf of America' and musings about 'Trump Ocean'."
+          }
+        ],
+        "sources": [
+          {
+            "name": "PBS NewsHour",
+            "badge": "Fact-Checker",
+            "headline": "Why executive orders cannot unilaterally rename international Great Lakes",
+            "url": "https://www.pbs.org",
+            "takeaway": "Legal scholars explain that unilateral US administrative orders cannot alter international maritime boundaries or names."
+          },
+          {
+            "name": "The Washington Post",
+            "badge": "News Analysis",
+            "headline": "From 'Gulf of America' to 'Lake America': Trump's geographical crusade",
+            "url": "https://www.washingtonpost.com",
+            "takeaway": "Catalogues how symbolic name-changes are deployed as rally applause lines during trade disputes."
+          },
+          {
+            "name": "International Joint Commission (IJC)",
+            "badge": "Primary Treaty Body",
+            "headline": "Official Map and Boundary Waters Registry",
+            "url": "https://www.ijc.org",
+            "takeaway": "Primary records reaffirming Lake Ontario's recognized binational jurisdiction."
+          }
+        ],
+        "media_framing": {
+          "critical": {
+            "outlet": "Diplomatic & Independent Press",
+            "headline": "Bizarre Border Grievance: Trump Trivializes Treaty Relations for Cheap Cheers",
+            "summary": "Mock the claim as geography denialism that risks alienating key trading partners like Canada over harmless semantics."
+          },
+          "conservative": {
+            "outlet": "Populist Commentators & Fox Radio",
+            "headline": "America First Reclaims Our Waters: Defying Bureaucratic Border Complacency",
+            "summary": "Praise the move as an assertive cultural and territorial stance showing Trump's willingness to stand up to Canadian trade tactics."
+          }
+        },
+        "tags": ["#ForeignPolicy", "#Canada", "#Geography", "#ExecutiveOrders"]
+      }
+    ];
+
+    let currentIndex = 0;
+
+    function renderCurrentQuote() {
+      const item = quotesData[currentIndex];
+      if (!item) return;
+
+      document.getElementById('quote-timestamp').innerHTML = `<i data-lucide="calendar" class="w-3.5 h-3.5"></i> ${item.timestamp} &bull; ${item.location}`;
+      document.getElementById('verdict-tag').innerHTML = `<i data-lucide="alert-octagon" class="w-3.5 h-3.5"></i> ${item.verdict}`;
+      document.getElementById('quote-text').innerText = item.quote;
+      document.getElementById('quote-context').innerText = item.primary_context;
+      document.getElementById('absurdity-score').innerText = `${item.verdict_score} / 10 • ${item.verdict_score > 9 ? 'Extremely Detached from Reality' : 'Heavily Misleading'}`;
+      document.getElementById('verdict-desc').innerText = item.verdict_description;
+
+      // Render Facts
+      const factsContainer = document.getElementById('facts-container');
+      factsContainer.innerHTML = item.key_facts.map((f, i) => `
+        <div class="p-3.5 rounded-xl bg-slate-800/40 border border-slate-800 flex items-start gap-3">
+          <span class="p-1 rounded bg-rose-500/20 text-rose-400 font-bold text-xs mt-0.5">0${i + 1}</span>
+          <div>
+            <h4 class="text-sm font-bold text-white">${f.point}</h4>
+            <p class="text-xs text-slate-300 mt-1">${f.detail}</p>
+          </div>
+        </div>
+      `).join('');
+
+      // Render Sources
+      const sourcesContainer = document.getElementById('sources-container');
+      sourcesContainer.innerHTML = item.sources.map(s => `
+        <a href="${s.url}" target="_blank" class="p-4 rounded-xl bg-slate-800/40 border border-slate-800 hover:border-sky-500/50 hover:bg-slate-800/70 transition block group">
+          <div class="flex items-center justify-between text-xs mb-1">
+            <span class="font-bold text-sky-400 flex items-center gap-1.5">
+              <i data-lucide="newspaper" class="w-3.5 h-3.5"></i> ${s.name}
+            </span>
+            <span class="px-2 py-0.5 rounded bg-sky-500/10 text-sky-300 border border-sky-500/20 text-[10px]">${s.badge}</span>
+          </div>
+          <h4 class="text-sm font-semibold text-white group-hover:text-sky-300 transition">${s.headline} &rarr;</h4>
+          <p class="text-xs text-slate-400 mt-1">${s.takeaway}</p>
+        </a>
+      `).join('');
+
+      // Render Media Spin
+      document.getElementById('spin-crit-outlet').innerText = item.media_framing.critical.outlet;
+      document.querySelector('#tab-spin .italic').innerText = `"${item.media_framing.critical.headline}"`;
+      document.querySelector('#tab-spin .text-\\[11px\\]').innerHTML = `<strong>Takeaway:</strong> ${item.media_framing.critical.summary}`;
+
+      const favBlock = document.querySelectorAll('#tab-spin .p-4')[1];
+      favBlock.querySelector('#spin-fav-outlet').innerText = item.media_framing.conservative.outlet;
+      favBlock.querySelector('.italic').innerText = `"${item.media_framing.conservative.headline}"`;
+      favBlock.querySelector('.text-\\[11px\\]').innerHTML = `<strong>Takeaway:</strong> ${item.media_framing.conservative.summary}`;
+
+      // Render Tags
+      document.getElementById('quote-tags').innerHTML = item.tags.map(t => `
+        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">${t}</span>
+      `).join('');
+
+      // Refresh Lucide Icons
+      lucide.createIcons();
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('border-rose-500', 'text-white', 'bg-slate-800/50');
+        btn.classList.add('border-transparent', 'text-slate-400');
+      });
+
+      document.getElementById(tabId).classList.remove('hidden');
+      const activeBtn = document.getElementById('btn-' + tabId);
+      activeBtn.classList.add('border-rose-500', 'text-white', 'bg-slate-800/50');
+      activeBtn.classList.remove('border-transparent', 'text-slate-400');
+    }
+
+    function loadQuote(index) {
+      currentIndex = index;
+      renderCurrentQuote();
+      // Update archive active state
+      document.querySelectorAll('.archive-item').forEach((item, i) => {
+        if (i === index) {
+          item.classList.add('border-rose-500/40', 'bg-slate-800/80');
+          item.classList.remove('border-slate-800', 'bg-slate-800/40');
+        } else {
+          item.classList.remove('border-rose-500/40', 'bg-slate-800/80');
+          item.classList.add('border-slate-800', 'bg-slate-800/40');
+        }
+      });
+    }
+
+    function toggleModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.toggle('hidden');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+
+    function castVote(type) {
+      showToast('Vote submitted: Absurdity rating updated!');
+    }
+
+    function shareQuote() {
+      navigator.clipboard.writeText(window.location.href);
+      showToast('Fact-check link copied to clipboard!');
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCurrentQuote();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

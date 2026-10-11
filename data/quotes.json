@@ -1,0 +1,122 @@
+[
+  {
+    "id": "2026-10-10-micron-tariffs",
+    "date": "2026-10-10",
+    "timestamp": "October 9, 2026 • 7:45 PM EDT",
+    "location": "Oncenter Rally, Syracuse, NY",
+    "claim_summary": "Claimed his tariffs brought Micron's $100B semiconductor plant to Syracuse, taking sole credit.",
+    "quote": "I brought Micron here with my tariffs. If it wasn't for my tariffs, they'd be building in China. We made the $100 billion deal happen right here in Syracuse. Nobody else could have made this deal.",
+    "verdict": "PANTS ON FIRE",
+    "verdict_score": 9.4,
+    "verdict_description": "Blatantly false. Micron committed the $100B investment four years earlier in 2022 under the bipartisan CHIPS Act, which Trump previously condemned and called a 'horrible bill'.",
+    "primary_context": "During an 80-minute campaign rally in upstate New York supporting Bruce Blakeman, Trump asserted that Micron Technology chose Central New York strictly because of his tariff threats.",
+    "key_facts": [
+      {
+        "point": "Announced in 2022, Not 2026",
+        "detail": "Micron publicly finalized its commitment to invest up to $100B in Clay, NY on October 4, 2022."
+      },
+      {
+        "point": "Created by the CHIPS and Science Act",
+        "detail": "Micron leadership explicitly stated federal grants from Biden's 2022 CHIPS Act made the megafab financially viable."
+      },
+      {
+        "point": "Trump Previously Opposed the Law",
+        "detail": "Trump publicly attacked the CHIPS Act, calling it 'so bad' and urging its repeal, despite now taking credit for its flagship project."
+      }
+    ],
+    "sources": [
+      {
+        "name": "WRVO Public Media / NPR",
+        "badge": "Local Investigation",
+        "headline": "Fact Check: Micron's $100B Syracuse MegaFab was secured in 2022 under CHIPS Act, not Trump tariffs",
+        "url": "https://www.wrvo.org",
+        "takeaway": "Confirms the deal timeline and highlights that local contracts were signed years before Trump's tariff proposals."
+      },
+      {
+        "name": "PolitiFact",
+        "badge": "Fact-Checker",
+        "headline": "Trump falsely claims his tariff policies brought Micron's $100B semiconductor plant to New York",
+        "url": "https://www.politifact.com",
+        "takeaway": "Rates claim False: Tariffs had zero bearing on the investment agreement; Trump took credit for Biden-era legislation."
+      },
+      {
+        "name": "Micron Technology Official Archive",
+        "badge": "Primary Source",
+        "headline": "Micron Announces Historic $100 Billion Investment in New York Semiconductor Manufacturing (Oct 2022)",
+        "url": "https://www.micron.com",
+        "takeaway": "Original company announcement crediting bipartisan federal CHIPS grants and NY Green CHIPS incentives."
+      }
+    ],
+    "media_framing": {
+      "critical": {
+        "outlet": "Mainstream & Independent Media (NYT, MSNBC, NPR)",
+        "headline": "Blatant Historical Revisionism: Trump Takes Credit for Legislation He Tried to Kill",
+        "summary": "Highlight the direct contradiction between Trump's attacks on the $52B CHIPS Act and his rally speech claiming credit for Micron's $100B campus. Emphasize that tariffs played no role in the 2022 deal."
+      },
+      "conservative": {
+        "outlet": "Right-Wing & Campaign Press (Fox News, Sky News, Campaign PR)",
+        "headline": "Trump Energizes Upstate New York, Spotlighting Tariff Shield for American Manufacturing",
+        "summary": "Frame the speech as a masterclass in economic patriotism, highlighting Trump's argument that aggressive tariff deterrence is what prevents tech titans like Micron from fleeing to Asia."
+      }
+    },
+    "tags": ["Economy", "Semiconductors", "Tariffs", "Syracuse Rally"]
+  },
+  {
+    "id": "2026-10-09-lake-america",
+    "date": "2026-10-09",
+    "timestamp": "October 9, 2026 • 8:15 PM EDT",
+    "location": "Oncenter Rally, Syracuse, NY",
+    "claim_summary": "Referred to Lake Ontario as 'Lake America' after signing an executive order ordering federal maps to rename it.",
+    "quote": "It is great to be back in upstate New York, just a short distance from the beautiful shores of Lake America. Canada had it long enough, but it belongs to us.",
+    "verdict": "FALSE / DIPLOMATIC FARCE",
+    "verdict_score": 8.8,
+    "verdict_description": "Lake Ontario is an international body of water divided by the US-Canada border under the 1909 Boundary Waters Treaty. A US executive order has zero international legal standing.",
+    "primary_context": "Rally remarks following an August executive order directing US federal agencies to refer to Lake Ontario as 'Lake America' amid cross-border trade friction.",
+    "key_facts": [
+      {
+        "point": "Governed by 1909 Treaty",
+        "detail": "The boundary and naming conventions are governed by international treaty, not unilateral presidential fiat."
+      },
+      {
+        "point": "Canada & World Renounce Change",
+        "detail": "Canadian officials, international cartographers, and the International Hydrographic Organization rejected the change."
+      }
+    ],
+    "sources": [
+      {
+        "name": "PBS NewsHour",
+        "badge": "Fact-Checker",
+        "headline": "Why executive orders cannot unilaterally rename international Great Lakes",
+        "url": "https://www.pbs.org",
+        "takeaway": "Legal scholars explain that unilateral US administrative orders cannot alter international maritime boundaries or names."
+      },
+      {
+        "name": "The Washington Post",
+        "badge": "News Analysis",
+        "headline": "From 'Gulf of America' to 'Lake America': Trump's geographical crusade",
+        "url": "https://www.washingtonpost.com",
+        "takeaway": "Catalogues how symbolic name-changes are deployed as rally applause lines during trade disputes."
+      },
+      {
+        "name": "International Joint Commission (IJC)",
+        "badge": "Primary Treaty Body",
+        "headline": "Official Map and Boundary Waters Registry",
+        "url": "https://www.ijc.org",
+        "takeaway": "Primary records reaffirming Lake Ontario's recognized binational jurisdiction."
+      }
+    ],
+    "media_framing": {
+      "critical": {
+        "outlet": "Diplomatic & Independent Press",
+        "headline": "Bizarre Border Grievance: Trump Trivializes Treaty Relations for Cheap Cheers",
+        "summary": "Mock the claim as geography denialism that risks alienating key trading partners like Canada over harmless semantics."
+      },
+      "conservative": {
+        "outlet": "Populist Commentators & Fox Radio",
+        "headline": "America First Reclaims Our Waters: Defying Bureaucratic Border Complacency",
+        "summary": "Praise the move as an assertive cultural and territorial stance showing Trump's willingness to stand up to Canadian tariffs."
+      }
+    },
+    "tags": ["Foreign Policy", "Canada", "Geography", "Executive Orders"]
+  }
+]

@@ -1,0 +1,59 @@
+name: Daily 24h Fact-Check & Site Deploy
+
+on:
+  schedule:
+    # Runs daily at 08:00 AM UTC (adjust to your preferred time)
+    - cron: '0 8 * * *'
+  # Allows you to click "Run workflow" manually in the GitHub Actions tab at any time
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run 24h Ingestion & Fact-Check Script
+        run: |
+          python fetch_daily.py
+
+      - name: Commit and push updated quotes.json
+        run: |
+          git config --global user.name "Daily Watchdog Bot"
+          git config --global user.email "bot@users.noreply.github.com"
+          git add data/quotes.json
+          if git diff --staged --quiet; then
+            echo "No new updates found today."
+          else
+            git commit -m "Auto-update: Daily Trump quotes & fact checks [skip ci]"
+            git push
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  deploy-pages:
+    needs: update-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
