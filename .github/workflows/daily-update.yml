@@ -1,6 +1,8 @@
 name: Daily 24h Fact-Check & Site Deploy
 
 on:
+  push:
+    branches: [ main ]
   schedule:
     # Runs daily at 08:00 AM UTC (adjust to your preferred time)
     - cron: '0 8 * * *'
