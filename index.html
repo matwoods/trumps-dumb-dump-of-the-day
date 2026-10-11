@@ -11,7 +11,7 @@
   <!-- Google Fonts matching America.gov typography: Serif for institutional titles, Sans for crisp body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Public+Sans:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;0,8..60,900;1,8..60,400;1,8..60,700&display=swap" rel="stylesheet">
   
   <script>
     tailwind.config = {
@@ -107,11 +107,11 @@
       <div class="flex items-center gap-3">
         <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-xs text-slate-600">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Daily Run: <strong class="text-slate-900" id="current-date-badge">Oct 10, 2026</strong></span>
+          <span>Verified: <strong class="text-slate-900" id="current-date-badge">Oct 11, 2026</strong></span>
         </div>
         <button onclick="toggleModal('pipeline-modal')" class="px-5 py-2 rounded-full bg-gov-blue hover:bg-blue-800 text-white text-xs font-semibold tracking-tight shadow-sm transition flex items-center gap-1.5">
           <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-          <span>Automated Pipeline</span>
+          <span>Cloud Pipeline</span>
         </button>
       </div>
 
@@ -119,358 +119,235 @@
   </header>
 
   <!-- ========================================== -->
-  <!-- 3. AMERICA.GOV HERO: "HELLO, CITIZEN" -->
+  <!-- 3. TOP HIERARCHY HERO: THE QUOTE OF THE DAY -->
   <!-- ========================================== -->
   <section class="bg-gradient-to-b from-white via-slate-50 to-[#F8F9FA] border-b border-slate-200 py-10 px-4 sm:px-8">
-    <div class="max-w-4xl mx-auto text-center space-y-4">
+    <div class="max-w-5xl mx-auto space-y-6">
       
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-gov-blue text-xs font-bold uppercase tracking-wider">
-        <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-        Official Daily Absurdity Assessment
+      <!-- Top Meta Banner -->
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/80 pb-4">
+        <div class="flex items-center gap-2.5 text-xs">
+          <span class="px-3 py-1 rounded-full bg-gov-blue text-white font-extrabold uppercase tracking-wider text-[11px] shadow-2xs flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+            TODAY'S STATEMENT
+          </span>
+          <span class="text-slate-600 font-semibold text-xs sm:text-sm" id="quote-timestamp">
+            October 11, 2026 &bull; Truth Social Post
+          </span>
+        </div>
+
+        <!-- Official Verdict Stamp -->
+        <span class="px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-red-100 text-gov-crimson border border-red-200 shadow-xs flex items-center gap-2" id="verdict-tag">
+          <i data-lucide="alert-triangle" class="w-4 h-4 text-gov-crimson"></i>
+          CATEGORICALLY FALSE &bull; SCORE: 9.7/10
+        </span>
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-black tracking-tight font-serif-header text-gov-navy leading-tight">
-        Trump's Dumb Dump of the Day
-      </h1>
-
-      <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-        Auditing the most absurd, unhinged, or debunked statements made by Donald Trump in the past 24 hours. Every claim is verbatim, verified against primary transcripts, and graded across 3 independent evidentiary standards.
-      </p>
-
-      <!-- America.gov Rounded Pill Search/Action Bar -->
-      <div class="pt-3 max-w-xl mx-auto">
-        <div class="relative bg-white rounded-full p-2 border border-slate-300 shadow-sm flex items-center justify-between gap-3 focus-within:ring-2 focus-within:ring-gov-blue">
-          <div class="flex items-center gap-2.5 pl-3 flex-1">
-            <i data-lucide="search" class="w-4 h-4 text-slate-400 shrink-0"></i>
-            <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Search 5-day archive (e.g. 'Micron', 'Lake America', 'Social Security', 'Nobel')..." class="w-full text-xs sm:text-sm bg-transparent outline-none text-slate-800 placeholder-slate-400">
-          </div>
-          <button onclick="handleSearch(document.getElementById('search-input').value)" class="px-5 py-2 rounded-full bg-gov-navy hover:bg-gov-darkblue text-white text-xs font-semibold tracking-tight transition shrink-0">
-            Search
-          </button>
+      <!-- THE MASSIVE HERO QUOTE -->
+      <div class="space-y-3">
+        <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+          <i data-lucide="quote" class="w-4 h-4 text-gov-blue"></i>
+          Primary Verbatim Transcription
         </div>
+        
+        <blockquote class="text-2xl sm:text-4xl lg:text-[40px] font-black font-serif-header text-gov-navy leading-[1.25] tracking-tight border-l-6 border-gov-red pl-6 py-2.5 italic bg-red-50/40 rounded-r-3xl" id="quote-text">
+          "The Nobel Committee is a complete disgrace! They gave the Peace Prize to someone nobody has ever heard of instead of me. I ended six wars, maybe seven, in one night. Nobody in the history of our country has brought more peace, but the corrupt globalists refuse to recognize it."
+        </blockquote>
+
+        <p class="text-xs sm:text-sm text-slate-600 mt-2 ml-6 font-medium" id="quote-context">
+          Early morning Truth Social post responding to the Norwegian Nobel Committee's 2026 peace prize announcement.
+        </p>
+      </div>
+
+      <!-- Absurdity Evaluation Bar -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between mb-2 text-xs">
+          <span class="font-bold text-gov-darkblue flex items-center gap-1.5 text-xs sm:text-sm">
+            <i data-lucide="scale" class="w-4 h-4 text-gov-blue"></i>
+            Executive Determination of Accuracy
+          </span>
+          <span class="text-gov-crimson font-black text-xs uppercase" id="absurdity-score">
+            Categorically False &bull; 9.7 / 10
+          </span>
+        </div>
+        <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden mb-2.5">
+          <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-gov-red h-full rounded-full transition-all duration-500" style="width: 97%"></div>
+        </div>
+        <p class="text-xs text-slate-700 leading-relaxed font-medium" id="verdict-desc">
+          Fictional. The 2026 Nobel Peace Prize was awarded to respected South African jurist Navi Pillay. Trump did not end 6 or 7 wars in one night; multiple international conflicts cited remained actively contested.
+        </p>
       </div>
 
     </div>
   </section>
 
   <!-- ========================================== -->
-  <!-- 4. MAIN DOSSIER / REPORT CONTENT -->
+  <!-- 4. MEDIA & EVIDENCE DOSSIER (Below Hero) -->
   <!-- ========================================== -->
-  <main class="max-w-6xl mx-auto px-4 sm:px-8 py-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
+  <main class="max-w-5xl mx-auto px-4 sm:px-8 py-8 space-y-8 flex-1 w-full">
 
-    <!-- Left 8 Columns: The Official Daily Record -->
-    <div class="lg:col-span-8 space-y-6">
-
-      <!-- Official Report Card -->
-      <article class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm relative">
-        
-        <!-- Document Header / Meta Bar -->
-        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-6">
-          <div class="flex items-center gap-2 text-xs">
-            <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 font-bold tracking-wide uppercase text-[10px] border border-slate-200">
-              RECORD #2026-10-10
-            </span>
-            <span class="text-slate-500 font-medium" id="quote-timestamp">
-              October 9, 2026 &bull; Oncenter Rally, Syracuse, NY
-            </span>
-          </div>
-
-          <!-- Official Stamp / Verdict Tag -->
-          <div class="flex items-center gap-2">
-            <span class="px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-red-100 text-gov-crimson border border-red-200 shadow-xs flex items-center gap-1.5" id="verdict-tag">
-              <i data-lucide="alert-triangle" class="w-4 h-4"></i>
-              REFUTED BY EVIDENCE &bull; SCORE: 9.4/10
-            </span>
-          </div>
-        </div>
-
-        <!-- The Verbatim Quote (Serif Dignity) -->
-        <div class="mb-6">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5 mb-2">
-            <i data-lucide="quote" class="w-3.5 h-3.5 text-gov-blue"></i> Primary Verbatim Transcription
+    <!-- Primary Media Grid (Verified Photo + Primary Broadcast Video) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <!-- Image Box -->
+      <div class="rounded-3xl overflow-hidden border border-slate-200 bg-white flex flex-col justify-between shadow-2xs group">
+        <div class="relative overflow-hidden bg-slate-900 h-52 sm:h-64">
+          <img id="quote-image" src="" alt="Donald Trump" class="w-full h-full object-cover object-top transition duration-300 group-hover:scale-103">
+          <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-slate-900/80 text-white text-[10px] font-bold backdrop-blur-xs flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="camera" class="w-3.5 h-3.5"></i> Verified Photographic Record
           </span>
-          <blockquote class="text-xl sm:text-2xl font-bold font-serif-header text-gov-navy leading-relaxed border-l-4 border-gov-red pl-5 py-2 italic bg-red-50/30 rounded-r-2xl" id="quote-text">
-            "I brought Micron here with my tariffs. If it wasn't for my tariffs, they'd be building in China. We made the $100 billion deal happen right here in Syracuse. Nobody else could have made this deal."
-          </blockquote>
-          <p class="text-xs text-slate-500 mt-2.5 ml-5" id="quote-context">
-            Delivered in Syracuse, NY during an 80-minute campaign rally in support of Bruce Blakeman.
+        </div>
+        <div class="p-3.5 bg-white border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+          <span id="quote-image-caption" class="truncate font-semibold text-slate-700"></span>
+          <span id="quote-image-credit" class="shrink-0 text-slate-400 text-[10px] ml-2"></span>
+        </div>
+      </div>
+
+      <!-- Video / Audio Footage Box -->
+      <div class="rounded-3xl border border-slate-200 bg-white p-6 flex flex-col justify-between shadow-2xs">
+        <div>
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="font-extrabold text-gov-blue flex items-center gap-1.5 uppercase tracking-wider text-[11px]">
+              <i data-lucide="video" class="w-4 h-4"></i> Primary Broadcast Footage
+            </span>
+            <span id="video-timestamp" class="px-2.5 py-1 rounded-full bg-blue-50 text-gov-blue text-[10px] font-mono font-bold border border-blue-200"></span>
+          </div>
+          <h4 id="video-title" class="text-base font-bold text-gov-navy leading-snug font-serif-header"></h4>
+          <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+            Archived broadcast footage documenting the delivery, historical context, and immediate public response.
           </p>
         </div>
-
-        <!-- Primary Media & Video Footage Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <!-- Image Box -->
-          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 flex flex-col justify-between shadow-2xs group">
-            <div class="relative overflow-hidden bg-slate-900 h-48 sm:h-52">
-              <img id="quote-image" src="" alt="Donald Trump" class="w-full h-full object-cover object-top transition duration-300 group-hover:scale-103">
-              <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-slate-900/80 text-white text-[10px] font-semibold backdrop-blur-xs flex items-center gap-1">
-                <i data-lucide="camera" class="w-3 h-3"></i> Verified Photo
-              </span>
-            </div>
-            <div class="p-3 bg-white border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-              <span id="quote-image-caption" class="truncate font-medium text-slate-700"></span>
-              <span id="quote-image-credit" class="shrink-0 text-slate-400 text-[10px] ml-2"></span>
-            </div>
-          </div>
-
-          <!-- Video / Audio Footage Box -->
-          <div class="rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-blue-50/30 p-5 flex flex-col justify-between shadow-2xs">
-            <div>
-              <div class="flex items-center justify-between text-xs mb-2.5">
-                <span class="font-bold text-gov-blue flex items-center gap-1.5 uppercase tracking-wider text-[10px]">
-                  <i data-lucide="video" class="w-3.5 h-3.5"></i> Primary Broadcast Footage
-                </span>
-                <span id="video-timestamp" class="px-2.5 py-0.5 rounded-full bg-blue-100 text-gov-blue text-[10px] font-mono font-bold"></span>
-              </div>
-              <h4 id="video-title" class="text-sm font-bold text-gov-navy leading-snug"></h4>
-              <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                Archived broadcast footage documenting the delivery, context, and immediate audience reaction.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-slate-200/80 mt-4">
-              <a id="video-link" href="#" target="_blank" class="w-full py-2.5 px-4 rounded-full bg-gov-blue hover:bg-blue-800 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-xs transition group">
-                <i data-lucide="play-circle" class="w-4 h-4 transition group-hover:scale-110"></i>
-                <span id="video-platform">Watch Primary Footage</span>
-                <span>&rarr;</span>
-              </a>
-            </div>
-          </div>
+        <div class="pt-5 border-t border-slate-100 mt-5">
+          <a id="video-link" href="#" target="_blank" class="w-full py-3 px-5 rounded-full bg-gov-blue hover:bg-blue-800 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-xs transition group">
+            <i data-lucide="play-circle" class="w-4 h-4 transition group-hover:scale-110"></i>
+            <span id="video-platform">Watch Primary Footage</span>
+            <span>&rarr;</span>
+          </a>
         </div>
-
-        <!-- Official Evaluation Summary Box -->
-        <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mb-6">
-          <div class="flex items-center justify-between mb-2 text-xs">
-            <span class="font-bold text-gov-darkblue flex items-center gap-1.5">
-              <i data-lucide="scale" class="w-4 h-4 text-gov-blue"></i>
-              Executive Determination of Accuracy
-            </span>
-            <span class="text-gov-crimson font-black text-xs uppercase" id="absurdity-score">
-              Categorically False &bull; 9.4 / 10
-            </span>
-          </div>
-          <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-3">
-            <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-gov-red h-full rounded-full" style="width: 94%"></div>
-          </div>
-          <p class="text-xs text-slate-700 leading-relaxed font-medium" id="verdict-desc">
-            Blatantly false. Micron committed the $100B investment four years earlier in 2022 under the bipartisan CHIPS and Science Act, which Trump previously condemned and called a 'horrible bill' that should be repealed.
-          </p>
-        </div>
-
-        <!-- America.gov Tabbed Interface -->
-        <div>
-          <!-- Tab Navigation -->
-          <div class="flex border-b border-slate-200 text-xs font-semibold gap-1 sm:gap-2 mb-6" id="tabs-header">
-            <button onclick="switchTab('tab-facts')" id="btn-tab-facts" class="tab-btn px-4 py-3 rounded-t-xl border-b-2 border-gov-blue text-gov-blue bg-blue-50/60 flex items-center gap-2">
-              <i data-lucide="check-circle-2" class="w-4 h-4 text-gov-blue"></i>
-              1. Findings of Fact
-            </button>
-            <button onclick="switchTab('tab-sources')" id="btn-tab-sources" class="tab-btn px-4 py-3 rounded-t-xl border-b-2 border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50 flex items-center gap-2">
-              <i data-lucide="newspaper" class="w-4 h-4 text-slate-500"></i>
-              2. Three Certified Sources
-            </button>
-            <button onclick="switchTab('tab-spin')" id="btn-tab-spin" class="tab-btn px-4 py-3 rounded-t-xl border-b-2 border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50 flex items-center gap-2">
-              <i data-lucide="split" class="w-4 h-4 text-slate-500"></i>
-              3. Media Framing Comparison
-            </button>
-          </div>
-
-          <!-- Tab 1: Findings of Fact -->
-          <div id="tab-facts" class="tab-pane space-y-3.5">
-            <div id="facts-container" class="space-y-3">
-              <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-3.5 shadow-2xs">
-                <span class="w-6 h-6 rounded-full bg-blue-100 text-gov-blue font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
-                <div>
-                  <h4 class="text-sm font-bold text-gov-navy">Announced in 2022, Not 2026</h4>
-                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Micron publicly finalized its commitment to invest up to $100B in Clay, NY on October 4, 2022 — four full years prior to this rally speech.</p>
-                </div>
-              </div>
-              <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-3.5 shadow-2xs">
-                <span class="w-6 h-6 rounded-full bg-blue-100 text-gov-blue font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
-                <div>
-                  <h4 class="text-sm font-bold text-gov-navy">Incentivized by the CHIPS Act, Not Tariffs</h4>
-                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Micron CEO Sanjay Mehrotra explicitly cited federal grants from the 2022 CHIPS and Science Act and NY Green CHIPS tax incentives as the determining factors. Tariffs played zero role in the agreement.</p>
-                </div>
-              </div>
-              <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-3.5 shadow-2xs">
-                <span class="w-6 h-6 rounded-full bg-blue-100 text-gov-blue font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
-                <div>
-                  <h4 class="text-sm font-bold text-gov-navy">Trump Campaign Previously Vowed to Repeal the Law</h4>
-                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Trump repeatedly condemned the CHIPS Act as a "horrible bill" and suggested repealing it. Taking personal credit for a manufacturing campus made possible by legislation he opposed is contradicted by the public record.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tab 2: Three Certified Sources -->
-          <div id="tab-sources" class="tab-pane hidden space-y-3.5">
-            <p class="text-xs text-slate-500 mb-2">Mandatory compliance with the 3-source evidentiary rule:</p>
-            <div class="grid grid-cols-1 gap-3" id="sources-container">
-              <!-- Source 1 -->
-              <a href="https://www.wrvo.org" target="_blank" class="p-4 rounded-2xl bg-white border border-slate-200 hover:border-gov-blue hover:shadow-xs transition block group">
-                <div class="flex items-center justify-between text-xs mb-1.5">
-                  <span class="font-bold text-gov-blue flex items-center gap-1.5">
-                    <i data-lucide="radio" class="w-3.5 h-3.5"></i> WRVO Public Media (NPR Affiliate)
-                  </span>
-                  <span class="px-2 py-0.5 rounded-full bg-blue-50 text-gov-blue border border-blue-200 text-[10px] font-semibold">Local Investigative Record</span>
-                </div>
-                <h4 class="text-sm font-bold text-gov-navy group-hover:text-gov-blue transition">Fact Check: Micron’s $100B Syracuse MegaFab was secured in 2022 under CHIPS Act, not Trump tariffs &rarr;</h4>
-                <p class="text-xs text-slate-600 mt-1">Confirmed local lease documents and timeline demonstrating the project was established long before Trump's recent tariff statements.</p>
-              </a>
-
-              <!-- Source 2 -->
-              <a href="https://www.politifact.com" target="_blank" class="p-4 rounded-2xl bg-white border border-slate-200 hover:border-gov-blue hover:shadow-xs transition block group">
-                <div class="flex items-center justify-between text-xs mb-1.5">
-                  <span class="font-bold text-gov-red flex items-center gap-1.5">
-                    <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i> PolitiFact
-                  </span>
-                  <span class="px-2 py-0.5 rounded-full bg-red-50 text-gov-crimson border border-red-200 text-[10px] font-semibold">Independent Fact-Check</span>
-                </div>
-                <h4 class="text-sm font-bold text-gov-navy group-hover:text-gov-blue transition">Trump falsely claims his tariff policies brought Micron's $100B semiconductor plant to New York &rarr;</h4>
-                <p class="text-xs text-slate-600 mt-1">Rates claim "False": Tariffs had zero bearing on the investment agreement; Trump took credit for Biden-era legislation.</p>
-              </a>
-
-              <!-- Source 3 -->
-              <a href="https://www.micron.com" target="_blank" class="p-4 rounded-2xl bg-white border border-slate-200 hover:border-gov-blue hover:shadow-xs transition block group">
-                <div class="flex items-center justify-between text-xs mb-1.5">
-                  <span class="font-bold text-emerald-700 flex items-center gap-1.5">
-                    <i data-lucide="file-check" class="w-3.5 h-3.5"></i> Micron Technology Primary Press Release
-                  </span>
-                  <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-semibold">Primary Corporate Document</span>
-                </div>
-                <h4 class="text-sm font-bold text-gov-navy group-hover:text-gov-blue transition">Micron Announces Historic $100 Billion Investment in New York Semiconductor Manufacturing (Oct 4, 2022) &rarr;</h4>
-                <p class="text-xs text-slate-600 mt-1">The primary corporate announcement detailing that federal CHIPS subsidies were the direct catalyst for choosing Central New York.</p>
-              </a>
-            </div>
-          </div>
-
-          <!-- Tab 3: Media Framing Spectrum -->
-          <div id="tab-spin" class="tab-pane hidden space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <!-- Critical Angle -->
-              <div class="p-5 rounded-2xl bg-red-50/40 border border-red-200 space-y-2">
-                <div class="flex items-center gap-2">
-                  <span class="w-2.5 h-2.5 rounded-full bg-gov-crimson"></span>
-                  <span class="text-xs font-black uppercase tracking-wider text-gov-crimson">Critical / Mainstream Press</span>
-                </div>
-                <h5 class="text-xs font-bold text-gov-navy" id="spin-crit-outlet">NYT, MSNBC, NPR</h5>
-                <p class="text-xs text-slate-800 italic font-serif leading-relaxed">
-                  "Blatant rewrite of history: Trump takes a victory lap for Biden-era semiconductor mega-project he once called 'horrible'."
-                </p>
-                <div class="text-[11px] text-slate-600 bg-white p-3 rounded-xl border border-red-100 mt-2">
-                  <strong>Editorial Focus:</strong> Highlights the contradiction between calling for the repeal of the CHIPS Act and simultaneously claiming personal credit for its $100B campus.
-                </div>
-              </div>
-
-              <!-- Conservative / Right-Wing Angle -->
-              <div class="p-5 rounded-2xl bg-blue-50/40 border border-blue-200 space-y-2">
-                <div class="flex items-center gap-2">
-                  <span class="w-2.5 h-2.5 rounded-full bg-gov-blue"></span>
-                  <span class="text-xs font-black uppercase tracking-wider text-gov-blue">Conservative &amp; Campaign PR</span>
-                </div>
-                <h5 class="text-xs font-bold text-gov-navy" id="spin-fav-outlet">Fox News, Sky News, Campaign PR</h5>
-                <p class="text-xs text-slate-800 italic font-serif leading-relaxed">
-                  "Trump energizes Upstate New York rally, spotlighting tariff shield for American manufacturing &amp; American jobs."
-                </p>
-                <div class="text-[11px] text-slate-600 bg-white p-3 rounded-xl border border-blue-100 mt-2">
-                  <strong>Editorial Focus:</strong> Frames the statement not as a literal timeline, but as proof that aggressive tariff deterrence is what forces corporations to keep manufacturing inside the US.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tags & Citizen Action Footer -->
-        <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs">
-          <div class="flex items-center gap-2 flex-wrap" id="quote-tags">
-            <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">#Economy</span>
-            <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">#Semiconductors</span>
-            <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">#Tariffs</span>
-            <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-medium">#SyracuseRally</span>
-          </div>
-          <button onclick="shareQuote()" class="text-gov-blue hover:text-blue-900 font-semibold flex items-center gap-1.5 transition">
-            <i data-lucide="share-2" class="w-3.5 h-3.5"></i> Share Official Finding
-          </button>
-        </div>
-
-      </article>
-
-      <!-- Citizen Absurdity Feedback -->
-      <section class="bg-white border border-slate-200 rounded-3xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xs">
-        <div>
-          <h3 class="text-sm font-bold text-gov-navy flex items-center gap-2">
-            <i data-lucide="bar-chart-2" class="w-4 h-4 text-gov-blue"></i>
-            Citizen Feedback &amp; Index Rating
-          </h3>
-          <p class="text-xs text-slate-500 mt-0.5">Submit your rating for inclusion in the Weekly Executive Discourse Digest.</p>
-        </div>
-        <div class="flex items-center gap-2">
-          <button onclick="castVote('mild')" class="px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700 transition">
-            Misleading (1-5)
-          </button>
-          <button onclick="castVote('bad')" class="px-3.5 py-1.5 rounded-full bg-red-100 hover:bg-red-200 text-xs font-bold text-gov-crimson transition">
-            🔥 Pants On Fire (6-10)
-          </button>
-        </div>
-      </section>
-
+      </div>
     </div>
 
-    <!-- Right 4 Columns: Official Archives & Pipeline Registry -->
-    <aside class="lg:col-span-4 space-y-6">
+    <!-- America.gov Findings & Sources Tabs -->
+    <article class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs space-y-6">
+      
+      <!-- Tab Navigation -->
+      <div class="flex border-b border-slate-200 text-xs font-semibold gap-1 sm:gap-2 pb-px" id="tabs-header">
+        <button onclick="switchTab('tab-facts')" id="btn-tab-facts" class="tab-btn px-4 sm:px-6 py-3 rounded-t-xl border-b-2 border-gov-blue text-gov-blue bg-blue-50/60 flex items-center gap-2 font-bold">
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-gov-blue"></i>
+          1. Findings of Fact
+        </button>
+        <button onclick="switchTab('tab-sources')" id="btn-tab-sources" class="tab-btn px-4 sm:px-6 py-3 rounded-t-xl border-b-2 border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50 flex items-center gap-2 font-bold">
+          <i data-lucide="newspaper" class="w-4 h-4 text-slate-500"></i>
+          2. Three Certified Sources
+        </button>
+        <button onclick="switchTab('tab-spin')" id="btn-tab-spin" class="tab-btn px-4 sm:px-6 py-3 rounded-t-xl border-b-2 border-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50 flex items-center gap-2 font-bold">
+          <i data-lucide="split" class="w-4 h-4 text-slate-500"></i>
+          3. Media Framing Spectrum
+        </button>
+      </div>
 
-      <!-- Official Pipeline Status Box (America.gov Card) -->
-      <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-2xs">
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
-            <i data-lucide="shield" class="w-3.5 h-3.5 text-gov-blue"></i>
-            Verification Pipeline
-          </h3>
-          <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
-            ONLINE &bull; 24H
-          </span>
-        </div>
+      <!-- Tab 1: Findings of Fact -->
+      <div id="tab-facts" class="tab-pane space-y-3.5">
+        <div id="facts-container" class="space-y-3"></div>
+      </div>
 
-        <ul class="text-xs space-y-3 text-slate-600">
-          <li class="flex items-center justify-between pb-2 border-b border-slate-100">
-            <span>Speech &amp; Social Scraper:</span>
-            <span class="font-mono text-gov-blue font-semibold">Active</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-slate-100">
-            <span>Minimum Source Requirement:</span>
-            <span class="font-mono text-slate-900 font-bold">3 Independent Records</span>
-          </li>
-          <li class="flex items-center justify-between">
-            <span>Daily Cloud Execution:</span>
-            <span class="font-mono text-slate-700 font-medium">08:00 AM UTC</span>
-          </li>
-        </ul>
+      <!-- Tab 2: Three Certified Sources -->
+      <div id="tab-sources" class="tab-pane hidden space-y-3.5">
+        <p class="text-xs text-slate-500 mb-2">Mandatory compliance with the 3-source evidentiary rule:</p>
+        <div class="grid grid-cols-1 gap-3" id="sources-container"></div>
+      </div>
 
-        <div class="mt-5 pt-4 border-t border-slate-100">
-          <button onclick="toggleModal('pipeline-modal')" class="w-full py-2.5 px-4 rounded-full bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-gov-navy flex items-center justify-center gap-2 transition">
-            <i data-lucide="info" class="w-3.5 h-3.5 text-gov-blue"></i>
-            Audit Architecture Specs
-          </button>
+      <!-- Tab 3: Media Framing Spectrum -->
+      <div id="tab-spin" class="tab-pane hidden space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Critical Angle -->
+          <div class="p-5 rounded-2xl bg-red-50/40 border border-red-200 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-gov-crimson"></span>
+              <span class="text-xs font-black uppercase tracking-wider text-gov-crimson">Critical / Mainstream Press</span>
+            </div>
+            <h5 class="text-xs font-bold text-gov-navy" id="spin-crit-outlet"></h5>
+            <p class="text-xs text-slate-800 italic font-serif leading-relaxed" id="spin-crit-quote"></p>
+            <div class="text-[11px] text-slate-600 bg-white p-3 rounded-xl border border-red-100 mt-2" id="spin-crit-desc"></div>
+          </div>
+
+          <!-- Conservative Angle -->
+          <div class="p-5 rounded-2xl bg-blue-50/40 border border-blue-200 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-gov-blue"></span>
+              <span class="text-xs font-black uppercase tracking-wider text-gov-blue">Conservative &amp; Campaign PR</span>
+            </div>
+            <h5 class="text-xs font-bold text-gov-navy" id="spin-fav-outlet"></h5>
+            <p class="text-xs text-slate-800 italic font-serif leading-relaxed" id="spin-fav-quote"></p>
+            <div class="text-[11px] text-slate-600 bg-white p-3 rounded-xl border border-blue-100 mt-2" id="spin-fav-desc"></div>
+          </div>
         </div>
       </div>
 
-      <!-- Past Assessments Archive -->
-      <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-2xs">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4 flex items-center gap-1.5">
-          <i data-lucide="archive" class="w-3.5 h-3.5 text-slate-500"></i>
-          Executive Discourse Archive
+      <!-- Tags & Share Footer -->
+      <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2 flex-wrap" id="quote-tags"></div>
+        <button onclick="shareQuote()" class="text-gov-blue hover:text-blue-900 font-semibold flex items-center gap-1.5 transition">
+          <i data-lucide="share-2" class="w-3.5 h-3.5"></i> Share Official Finding
+        </button>
+      </div>
+
+    </article>
+
+    <!-- Citizen Rating Bar -->
+    <section class="bg-white border border-slate-200 rounded-3xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xs">
+      <div>
+        <h3 class="text-sm font-bold text-gov-navy flex items-center gap-2">
+          <i data-lucide="bar-chart-2" class="w-4 h-4 text-gov-blue"></i>
+          Citizen Feedback &amp; Index Rating
         </h3>
+        <p class="text-xs text-slate-500 mt-0.5">Submit your rating for inclusion in the Weekly Executive Discourse Digest.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="castVote('mild')" class="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700 transition">
+          Misleading (1-5)
+        </button>
+        <button onclick="castVote('bad')" class="px-4 py-1.5 rounded-full bg-red-100 hover:bg-red-200 text-xs font-bold text-gov-crimson transition">
+          🔥 Pants On Fire (6-10)
+        </button>
+      </div>
+    </section>
 
-        <div class="space-y-2.5" id="archive-list">
-          <!-- Dynamically populated by renderArchiveList() -->
+    <!-- ========================================== -->
+    <!-- 5. LOWER IN HIERARCHY: ARCHIVE EXPLORER & SEARCH -->
+    <!-- ========================================== -->
+    <section class="pt-8 border-t border-slate-200 space-y-6">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-bold text-gov-blue uppercase tracking-wider">Historical Records</span>
+          <h2 class="text-2xl font-bold font-serif-header text-gov-navy">Executive Discourse Archive (Past 5 Days)</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Browse or search previous statements audited by the watchdog pipeline.</p>
         </div>
       </div>
 
-    </aside>
+      <!-- America.gov Rounded Pill Search Bar (Lower Hierarchy) -->
+      <div class="bg-white rounded-full p-2 border border-slate-300 shadow-xs flex items-center justify-between gap-3 focus-within:ring-2 focus-within:ring-gov-blue max-w-2xl">
+        <div class="flex items-center gap-2.5 pl-3 flex-1">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 shrink-0"></i>
+          <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Search past archive (e.g. 'Micron', 'Lake America', 'Social Security', 'Nobel')..." class="w-full text-xs sm:text-sm bg-transparent outline-none text-slate-800 placeholder-slate-400">
+        </div>
+        <button onclick="handleSearch(document.getElementById('search-input').value)" class="px-5 py-2 rounded-full bg-gov-navy hover:bg-gov-darkblue text-white text-xs font-semibold tracking-tight transition shrink-0">
+          Filter
+        </button>
+      </div>
+
+      <!-- Archive Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="archive-list">
+        <!-- Dynamically rendered by renderArchiveList() -->
+      </div>
+
+    </section>
 
   </main>
 
   <!-- ========================================== -->
-  <!-- 5. HOW IT WORKS MODAL -->
+  <!-- 6. HOW IT WORKS MODAL -->
   <!-- ========================================== -->
   <div id="pipeline-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white border border-slate-200 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6">
@@ -521,7 +398,7 @@
   </div>
 
   <!-- ========================================== -->
-  <!-- 6. AMERICA.GOV OFFICIAL FOOTER -->
+  <!-- 7. AMERICA.GOV OFFICIAL FOOTER -->
   <!-- ========================================== -->
   <footer class="bg-white border-t border-slate-200 py-10 text-xs text-slate-500 mt-12">
     <div class="max-w-6xl mx-auto px-4 sm:px-8 space-y-6">
@@ -559,398 +436,375 @@
 
   <!-- App Script -->
   <script>
-    let quotesData = [
-  {
-    "id": "2026-10-11-nobel-peace-prize",
-    "date": "2026-10-11",
-    "timestamp": "October 11, 2026 • 6:15 AM EDT",
-    "location": "Truth Social",
-    "claim_summary": "Claimed he stopped 6 or 7 wars in one night and was cheated out of the 2026 Nobel Peace Prize by 'corrupt globalists'.",
-    "quote": "The Nobel Committee is a complete disgrace! They gave the Peace Prize to someone nobody has ever heard of instead of me. I ended six wars, maybe seven, in one night. Nobody in the history of our country has brought more peace, but the corrupt globalists refuse to recognize it.",
-    "verdict": "CATEGORICALLY FALSE • SCORE: 9.7/10",
-    "verdict_score": 9.7,
-    "verdict_description": "Fictional. The 2026 Nobel Peace Prize was awarded to respected South African jurist Navi Pillay. Trump did not end 6 or 7 wars in one night; multiple international conflicts cited remained actively contested.",
-    "primary_context": "Early morning Truth Social post responding to the Norwegian Nobel Committee's 2026 peace prize announcement.",
-    "media": {
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Donald_Trump_%2827150701414%29.jpg",
-      "image_caption": "Donald Trump delivering remarks on foreign policy at a campaign address.",
-      "image_credit": "Wikimedia Commons / Gage Skidmore",
-      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Truth+Social+Nobel",
-      "video_platform": "C-SPAN Video Archive",
-      "video_timestamp": "Archive Log #TRUTH-1011",
-      "video_title": "Video Address: Trump comments on Middle East peace deals and Nobel Prize"
-    },
-    "key_facts": [
-      {
-        "point": "Prize Awarded to Veteran Human Rights Leader",
-        "detail": "The Norwegian Nobel Committee awarded the 2026 Nobel Peace Prize to South African jurist Navi Pillay for lifetime anti-apartheid advocacy."
-      },
-      {
-        "point": "No 'Seven Wars Ended in One Night'",
-        "detail": "Independent foreign policy monitors and UN records confirm active military conflicts in Eastern Europe and the Middle East remained ongoing, with zero records of seven simultaneous peace resolutions."
-      },
-      {
-        "point": "Independent Committee Process",
-        "detail": "The Nobel Committee is appointed by the Norwegian Parliament and operates independently of US domestic politics or international trade disputes."
-      }
-    ],
-    "sources": [
-      {
-        "name": "Associated Press (AP)",
-        "badge": "Global Wire Verification",
-        "headline": "Nobel Peace Prize awarded to Navi Pillay as Trump protests omission on social media",
-        "url": "https://apnews.com",
-        "takeaway": "Details the Nobel Committee's formal citation and provides historical analysis disputing Trump's tally of resolved conflicts."
-      },
-      {
-        "name": "FactCheck.org",
-        "badge": "Independent Fact-Check",
-        "headline": "Trump's recurring claim of ending '6 or 7 wars in one night' examined",
-        "url": "https://www.factcheck.org",
-        "takeaway": "Categorizes the claim as completely false, showing that situations cited involved diplomatic phone calls rather than ended wars."
-      },
-      {
-        "name": "The Nobel Foundation Archive",
-        "badge": "Primary Organization Document",
-        "headline": "The Nobel Peace Prize 2026: Official Announcement and Citation",
-        "url": "https://www.nobelprize.org",
-        "takeaway": "Primary citation recognizing Navi Pillay's decades-long leadership in international justice and human rights law."
-      }
-    ],
-    "media_framing": {
-      "critical": {
-        "outlet": "Mainstream & Foreign Policy Press (NYT, Reuters, BBC)",
-        "headline": "Vanity Over Diplomacy: Trump Lashes Out at Nobel Committee Over Lifetime Recognition of Anti-Apartheid Hero",
-        "summary": "Focuses on the bizarre assertion of ending seven wars overnight, framing the post as an egocentric distraction from complex international negotiations."
-      },
-      "conservative": {
-        "outlet": "Conservative Media & Truth Social Amplifiers (Fox News, Sky News)",
-        "headline": "Trump Slams Elitist Nobel Snub, Citing Historic De-escalation Record Overseas",
-        "summary": "Presents Trump's frustration as justified pushback against a perceived liberal European establishment that routinely ignores America First foreign policy breakthroughs."
-      }
-    },
-    "tags": [
-      "ForeignPolicy",
-      "NobelPrize",
-      "TruthSocial",
-      "Diplomacy"
-    ]
-  },
-  {
-    "id": "2026-10-10-micron-tariffs",
-    "date": "2026-10-10",
-    "timestamp": "October 9, 2026 • 7:45 PM EDT",
-    "location": "Oncenter Campaign Rally, Syracuse, NY",
-    "claim_summary": "Claimed his tariffs brought Micron's $100B semiconductor plant to Syracuse, taking sole credit.",
-    "quote": "I brought Micron here with my tariffs. If it wasn't for my tariffs, they'd be building in China. We made the $100 billion deal happen right here in Syracuse. Nobody else could have made this deal.",
-    "verdict": "REFUTED BY EVIDENCE • SCORE: 9.4/10",
-    "verdict_score": 9.4,
-    "verdict_description": "Blatantly false. Micron committed the $100B investment four years earlier in 2022 under the bipartisan CHIPS and Science Act, which Trump previously condemned and called a 'horrible bill' that should be repealed.",
-    "primary_context": "Delivered in Syracuse, NY during an 80-minute campaign rally in support of Bruce Blakeman.",
-    "media": {
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Donald_Trump_%2827150816364%29.jpg",
-      "image_caption": "Donald Trump addressing an arena rally crowd from the podium in Syracuse, New York.",
-      "image_credit": "Wikimedia Commons / Gage Skidmore",
-      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Syracuse+rally",
-      "video_platform": "C-SPAN Rally Feed",
-      "video_timestamp": "Timestamp: 42:15",
-      "video_title": "Primary Rally Recording: Trump remarks on Micron semiconductor facility"
-    },
-    "key_facts": [
-      {
-        "point": "Announced in 2022, Not 2026",
-        "detail": "Micron publicly finalized its commitment to invest up to $100B in Clay, NY on October 4, 2022 — four full years prior to this rally speech."
-      },
-      {
-        "point": "Incentivized by the CHIPS Act, Not Tariffs",
-        "detail": "Micron CEO Sanjay Mehrotra explicitly cited federal grants from the 2022 CHIPS and Science Act and NY Green CHIPS tax incentives as the determining factors. Tariffs played zero role in the agreement."
-      },
-      {
-        "point": "Trump Campaign Previously Vowed to Repeal the Law",
-        "detail": "Trump repeatedly condemned the CHIPS Act as a 'horrible bill' and suggested repealing it. Taking personal credit for a manufacturing campus made possible by legislation he opposed is contradicted by the public record."
-      }
-    ],
-    "sources": [
-      {
-        "name": "WRVO Public Media (NPR Affiliate)",
-        "badge": "Local Investigative Record",
-        "headline": "Fact Check: Micron’s $100B Syracuse MegaFab was secured in 2022 under CHIPS Act, not Trump tariffs",
-        "url": "https://www.wrvo.org",
-        "takeaway": "Confirmed local lease documents and timeline demonstrating the project was established long before Trump's recent tariff statements."
-      },
-      {
-        "name": "PolitiFact",
-        "badge": "Independent Fact-Check",
-        "headline": "Trump falsely claims his tariff policies brought Micron's $100B semiconductor plant to New York",
-        "url": "https://www.politifact.com",
-        "takeaway": "Rates claim 'False': Tariffs had zero bearing on the investment agreement; Trump took credit for Biden-era legislation."
-      },
-      {
-        "name": "Micron Technology Primary Press Release",
-        "badge": "Primary Corporate Document",
-        "headline": "Micron Announces Historic $100 Billion Investment in New York Semiconductor Manufacturing (Oct 4, 2022)",
-        "url": "https://www.micron.com",
-        "takeaway": "Original company announcement crediting bipartisan federal CHIPS grants and NY Green CHIPS incentives as decisive factors."
-      }
-    ],
-    "media_framing": {
-      "critical": {
-        "outlet": "Mainstream & Independent Media (NYT, MSNBC, NPR)",
-        "headline": "Blatant Historical Revisionism: Trump Takes Credit for Legislation He Tried to Kill",
-        "summary": "Highlights the direct contradiction between calling for the repeal of the CHIPS Act and simultaneously claiming personal credit for its $100B campus."
-      },
-      "conservative": {
-        "outlet": "Right-Wing & Campaign Press (Fox News, Sky News, Campaign PR)",
-        "headline": "Trump Energizes Upstate New York, Spotlighting Tariff Shield for American Manufacturing",
-        "summary": "Frames the statement not as a literal timeline, but as proof that aggressive tariff deterrence is what forces corporations to keep manufacturing inside the US."
-      }
-    },
-    "tags": [
-      "Economy",
-      "Semiconductors",
-      "Tariffs",
-      "SyracuseRally"
-    ]
-  },
-  {
-    "id": "2026-10-09-lake-america",
-    "date": "2026-10-09",
-    "timestamp": "October 9, 2026 • 8:15 PM EDT",
-    "location": "Oncenter Campaign Rally, Syracuse, NY",
-    "claim_summary": "Referred to Lake Ontario as 'Lake America' after signing an executive order ordering federal maps to rename it.",
-    "quote": "It is great to be back in upstate New York, just a short distance from the beautiful shores of Lake America. Canada had it long enough, but it belongs to us.",
-    "verdict": "REFUTED BY TREATY • SCORE: 8.8/10",
-    "verdict_score": 8.8,
-    "verdict_description": "Lake Ontario is an international body of water divided by the US-Canada border under the 1909 Boundary Waters Treaty. A US executive order has zero international legal standing.",
-    "primary_context": "Rally remarks following an August executive order directing US federal agencies to refer to Lake Ontario as 'Lake America' amid cross-border trade friction.",
-    "media": {
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Donald_Trump_signs_an_Executive_Order_regarding_childhood_vaccines_in_the_Oval_Office%2C_Monday%2C_August_10%2C_2026_-_2.jpg",
-      "image_caption": "Donald Trump displaying a signed executive order at the Resolute Desk in the Oval Office.",
-      "image_credit": "The White House / Public Domain",
-      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+executive+order+signing",
-      "video_platform": "C-SPAN White House Feed",
-      "video_timestamp": "Timestamp: 18:40",
-      "video_title": "Oval Office Briefing: Executive Order signing on bilateral Great Lakes jurisdiction"
-    },
-    "key_facts": [
-      {
-        "point": "Governed by 1909 Treaty",
-        "detail": "The boundary and naming conventions are governed by the 1909 Boundary Waters Treaty, an international pact requiring mutual consent."
-      },
-      {
-        "point": "Canada & Cartographers Reject Change",
-        "detail": "Canadian officials, international cartographers, and the International Hydrographic Organization rejected the unilateral declaration."
-      },
-      {
-        "point": "Pattern of Renaming Stunts",
-        "detail": "Follows similar unilateral declarations regarding the 'Gulf of America' and rally musings regarding renaming bodies of water to 'Trump Ocean'."
-      }
-    ],
-    "sources": [
-      {
-        "name": "PBS NewsHour",
-        "badge": "Legal Fact-Check",
-        "headline": "Why executive orders cannot unilaterally rename international Great Lakes",
-        "url": "https://www.pbs.org",
-        "takeaway": "Legal scholars explain that unilateral US administrative orders cannot alter international maritime boundaries or names."
-      },
-      {
-        "name": "The Washington Post",
-        "badge": "News Analysis",
-        "headline": "From 'Gulf of America' to 'Lake America': Trump's geographical crusade",
-        "url": "https://www.washingtonpost.com",
-        "takeaway": "Catalogues how symbolic name-changes are deployed as rally applause lines during trade disputes."
-      },
-      {
-        "name": "International Joint Commission (IJC)",
-        "badge": "Primary Treaty Body",
-        "headline": "Official Map and Boundary Waters Registry",
-        "url": "https://www.ijc.org",
-        "takeaway": "Primary records reaffirming Lake Ontario's recognized binational jurisdiction."
-      }
-    ],
-    "media_framing": {
-      "critical": {
-        "outlet": "Diplomatic & Independent Press",
-        "headline": "Bizarre Border Grievance: Trump Trivializes Treaty Relations for Cheap Cheers",
-        "summary": "Mocks the claim as geography denialism that risks alienating key trading partners like Canada over harmless semantics."
-      },
-      "conservative": {
-        "outlet": "Populist Commentators & Fox Radio",
-        "headline": "America First Reclaims Our Waters: Defying Bureaucratic Border Complacency",
-        "summary": "Praises the move as an assertive cultural and territorial stance showing Trump's willingness to stand up to Canadian trade tactics."
-      }
-    },
-    "tags": [
-      "ForeignPolicy",
-      "Canada",
-      "Geography",
-      "ExecutiveOrders"
-    ]
-  },
-  {
-    "id": "2026-10-08-tariff-military-bonuses",
-    "date": "2026-10-08",
-    "timestamp": "October 8, 2026 • 2:30 PM CDT",
-    "location": "San Antonio Campaign Stop, TX",
-    "claim_summary": "Claimed military service member bonuses were paid directly from billions collected from foreign tariffs.",
-    "quote": "Every soldier is getting a massive bonus this month, paid 100% by the billions pouring in from our foreign tariffs. China and foreign countries are paying our military bonuses directly.",
-    "verdict": "DEBUNKED BY BUDGET DATA • SCORE: 9.2/10",
-    "verdict_score": 9.2,
-    "verdict_description": "False. Tariff receipts flow into the general US Treasury fund, not a defense bonus account. Pentagon records confirm bonus checks were funded by reallocating existing DoD housing allowance funds.",
-    "primary_context": "Campaign speech delivered to veterans and military families in San Antonio, Texas.",
-    "media": {
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/President_Donald_Trump_speaks_to_U.S._service_members_overseas_170527-M-GL218-159.jpg",
-      "image_caption": "Donald Trump addressing U.S. service members during a military personnel event.",
-      "image_credit": "U.S. Department of Defense / Public Domain",
-      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+military+troops+speech",
-      "video_platform": "DoD & C-SPAN Primary Broadcast",
-      "video_timestamp": "Timestamp: 27:04",
-      "video_title": "Speech Footage: Trump speaks to troops regarding bonus pay and tariff revenues"
-    },
-    "key_facts": [
-      {
-        "point": "Funded by Housing Offsets, Not Tariffs",
-        "detail": "Department of Defense budget transfers confirm military bonus payments were offset by reprogramming $1.2B in surplus military housing allowance allocations."
-      },
-      {
-        "point": "Tariffs Do Not Fund Specific Programs",
-        "detail": "Under federal budget law (Title 19), customs duties are deposited into the general fund of the Treasury and cannot be directly earmarked for executive bonuses without Congressional appropriation."
-      },
-      {
-        "point": "Tariffs Are Paid by US Importers",
-        "detail": "Every major economic study and customs documentation confirms tariffs are paid upon port entry by American importers, not foreign treasuries."
-      }
-    ],
-    "sources": [
-      {
-        "name": "Military Times",
-        "badge": "Defense Reporting",
-        "headline": "Fact check: Where the money for recent military bonuses actually came from",
-        "url": "https://www.militarytimes.com",
-        "takeaway": "Confirms Pentagon funding documents show money was shifted internally from personnel accounts, not foreign tariffs."
-      },
-      {
-        "name": "Congressional Budget Office (CBO)",
-        "badge": "Official Federal Agency",
-        "headline": "Monthly Budget Review: Customs Duties and General Fund Inflows",
-        "url": "https://www.cbo.gov",
-        "takeaway": "Official records demonstrating all customs revenue flows to the general fund with no discrete military bonus account."
-      },
-      {
-        "name": "FactCheck.org",
-        "badge": "Independent Fact-Check",
-        "headline": "Trump revives false claim that foreign nations directly fund US troop bonuses",
-        "url": "https://www.factcheck.org",
-        "takeaway": "Deconstructs the mechanism of tariffs and highlights that American consumers and businesses bear the duty payments."
-      }
-    ],
-    "media_framing": {
-      "critical": {
-        "outlet": "Mainstream & Defense Watchdogs (Defense News, CNN)",
-        "headline": "Budget Sleight of Hand: Trump Falsely Attributes Routine DoD Housing Reallocations to Tariff Windfalls",
-        "summary": "Emphasizes the misleading fiscal accounting that hides internal military budget shifts behind populist trade claims."
-      },
-      "conservative": {
-        "outlet": "Conservative Outlets (Fox Business, Daily Wire)",
-        "headline": "Trump Delivers for Troops: Aggressive Trade Stance Bolsters Defense Morale",
-        "summary": "Highlights the popular military bonus rollout as evidence that Trump's broader economic protectionism strengthens national defense."
-      }
-    },
-    "tags": [
-      "Military",
-      "Tariffs",
-      "Economy",
-      "FederalBudget"
-    ]
-  },
-  {
-    "id": "2026-10-07-social-security-120-years-old",
-    "date": "2026-10-07",
-    "timestamp": "October 7, 2026 • 8:00 PM CDT",
-    "location": "Omaha Arena Speech, NE",
-    "claim_summary": "Claimed millions of 120-year-olds are actively collecting illegal Social Security payments every month.",
-    "quote": "We have millions and millions of people who are 120, 130 years old, dead for fifty years, collecting Social Security checks every single month. Millions of illegal checks going to dead people!",
-    "verdict": "WILDLY FICTIONAL • SCORE: 9.6/10",
-    "verdict_score": 9.6,
-    "verdict_description": "Completely false. The Social Security Administration's Inspector General confirmed zero monthly benefit payments are issued to individuals over 120. The claim distorts legacy database records with no recorded death date.",
-    "primary_context": "Campaign address in Nebraska focusing on federal spending, waste, and entitlements.",
-    "media": {
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Donald_Trump_%2850548277763%29.jpg",
-      "image_caption": "Donald Trump speaking energetically at an arena rally in Omaha, Nebraska.",
-      "image_credit": "Wikimedia Commons / Gage Skidmore",
-      "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Omaha+Nebraska",
-      "video_platform": "C-SPAN Arena Broadcast",
-      "video_timestamp": "Timestamp: 51:12",
-      "video_title": "Broadcast Footage: Trump remarks on Social Security administration and fraud"
-    },
-    "key_facts": [
-      {
-        "point": "Zero Active Payments to Super-Centenarians",
-        "detail": "Social Security Administration audit records show zero monthly benefit checks are issued to individuals listed as over 120 years old."
-      },
-      {
-        "point": "Confusion Between Database Entries & Checks",
-        "detail": "The figure originates from historical Social Security Number databases created before the 1970s where deceased holders were never marked with death dates, not an active check payment list."
-      },
-      {
-        "point": "Automated Death Master File Safeguards",
-        "detail": "The SSA cross-checks state vital statistics and financial institutions monthly, automatically suspending accounts upon death reports."
-      }
-    ],
-    "sources": [
-      {
-        "name": "CBS News",
-        "badge": "Investigative Analysis",
-        "headline": "Fact-checking Trump's claim that millions over 120 are getting Social Security checks",
-        "url": "https://www.cbsnews.com",
-        "takeaway": "Interviews SSA actuaries who clarify that inactive numbers in a computerized registry do not equal dispatched checks."
-      },
-      {
-        "name": "Social Security Administration OIG",
-        "badge": "Official Federal Audit",
-        "headline": "Audit Report: Accuracy of the Death Master File and Centenarian Records",
-        "url": "https://oig.ssa.gov",
-        "takeaway": "Primary federal audit establishing that no payments were sent to individuals 120 and older with missing death records."
-      },
-      {
-        "name": "PolitiFact",
-        "badge": "Independent Fact-Check",
-        "headline": "Are 'millions of 120-year-olds' receiving Social Security checks? Pants on Fire.",
-        "url": "https://www.politifact.com",
-        "takeaway": "Rates claim 'Pants on Fire' — conflates inactive electronic database records with actual financial disbursements."
-      }
-    ],
-    "media_framing": {
-      "critical": {
-        "outlet": "Mainstream & Fact-Checking Press (WaPo, MSNBC, Forbes)",
-        "headline": "Phantom Beneficiaries: Trump Distorts Decades-Old Database Glitch to Attack Social Security Integrity",
-        "summary": "Points out how exaggerating clerical database anomalies undermines public trust in essential earned-benefit programs."
-      },
-      "conservative": {
-        "outlet": "Right-Wing Media (Fox News, Breitbart)",
-        "headline": "Trump Calls for Sweeping Audit of Broken Entitlement Bureaucracy",
-        "summary": "Frames the rhetoric as a necessary call to clean up Washington's antiquated record-keeping and eliminate government waste."
-      }
-    },
-    "tags": [
-      "SocialSecurity",
-      "Economy",
-      "Entitlements",
-      "GovernmentWaste"
-    ]
-  }
-];
-
+    let quotesData = [];
     let currentIndex = 0;
-    let filteredIndices = [0, 1, 2, 3, 4];
+    let filteredIndices = [];
+
+    // Fallback embedded dataset with complete media
+    const fallbackQuotes = [
+      {
+        "id": "2026-10-11-nobel-peace-prize",
+        "date": "2026-10-11",
+        "timestamp": "October 11, 2026 • 6:15 AM EDT",
+        "location": "Truth Social",
+        "claim_summary": "Claimed he stopped 6 or 7 wars in one night and was cheated out of the 2026 Nobel Peace Prize by 'corrupt globalists'.",
+        "quote": "\"The Nobel Committee is a complete disgrace! They gave the Peace Prize to someone nobody has ever heard of instead of me. I ended six wars, maybe seven, in one night. Nobody in the history of our country has brought more peace, but the corrupt globalists refuse to recognize it.\"",
+        "verdict": "CATEGORICALLY FALSE • SCORE: 9.7/10",
+        "verdict_score": 9.7,
+        "verdict_description": "Fictional. The 2026 Nobel Peace Prize was awarded to respected South African jurist Navi Pillay. Trump did not end 6 or 7 wars in one night; multiple international conflicts cited remained actively contested.",
+        "primary_context": "Early morning Truth Social post responding to the Norwegian Nobel Committee's 2026 peace prize announcement.",
+        "media": {
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Donald_Trump_%2827150701414%29.jpg",
+          "image_caption": "Donald Trump delivering remarks on foreign policy at a campaign address.",
+          "image_credit": "Wikimedia Commons / Gage Skidmore",
+          "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Truth+Social+Nobel",
+          "video_platform": "C-SPAN Video Archive",
+          "video_timestamp": "Archive Log #TRUTH-1011",
+          "video_title": "Video Address: Trump comments on Middle East peace deals and Nobel Prize"
+        },
+        "key_facts": [
+          {
+            "point": "Prize Awarded to Veteran Human Rights Leader",
+            "detail": "The Norwegian Nobel Committee awarded the 2026 Nobel Peace Prize to South African jurist Navi Pillay for lifetime anti-apartheid advocacy."
+          },
+          {
+            "point": "No 'Seven Wars Ended in One Night'",
+            "detail": "Independent foreign policy monitors and UN records confirm active military conflicts in Eastern Europe and the Middle East remained ongoing, with zero records of seven simultaneous peace resolutions."
+          },
+          {
+            "point": "Independent Committee Process",
+            "detail": "The Nobel Committee is appointed by the Norwegian Parliament and operates independently of US domestic politics or international trade disputes."
+          }
+        ],
+        "sources": [
+          {
+            "name": "Associated Press (AP)",
+            "badge": "Global Wire Verification",
+            "headline": "Nobel Peace Prize awarded to Navi Pillay as Trump protests omission on social media",
+            "url": "https://apnews.com",
+            "takeaway": "Details the Nobel Committee's formal citation and provides historical analysis disputing Trump's tally of resolved conflicts."
+          },
+          {
+            "name": "FactCheck.org",
+            "badge": "Independent Fact-Check",
+            "headline": "Trump's recurring claim of ending '6 or 7 wars in one night' examined",
+            "url": "https://www.factcheck.org",
+            "takeaway": "Categorizes the claim as completely false, showing that situations cited involved diplomatic phone calls rather than ended wars."
+          },
+          {
+            "name": "The Nobel Foundation Archive",
+            "badge": "Primary Organization Document",
+            "headline": "The Nobel Peace Prize 2026: Official Announcement and Citation",
+            "url": "https://www.nobelprize.org",
+            "takeaway": "Primary citation recognizing Navi Pillay's decades-long leadership in international justice and human rights law."
+          }
+        ],
+        "media_framing": {
+          "critical": {
+            "outlet": "Mainstream & Foreign Policy Press (NYT, Reuters, BBC)",
+            "headline": "Vanity Over Diplomacy: Trump Lashes Out at Nobel Committee Over Lifetime Recognition of Anti-Apartheid Hero",
+            "summary": "Focuses on the bizarre assertion of ending seven wars overnight, framing the post as an egocentric distraction from complex international negotiations."
+          },
+          "conservative": {
+            "outlet": "Conservative Media & Truth Social Amplifiers (Fox News, Sky News)",
+            "headline": "Trump Slams Elitist Nobel Snub, Citing Historic De-escalation Record Overseas",
+            "summary": "Presents Trump's frustration as justified pushback against a perceived liberal European establishment that routinely ignores America First foreign policy breakthroughs."
+          }
+        },
+        "tags": ["#ForeignPolicy", "#NobelPrize", "#TruthSocial", "#Diplomacy"]
+      },
+      {
+        "id": "2026-10-10-micron-tariffs",
+        "date": "2026-10-10",
+        "timestamp": "October 9, 2026 • 7:45 PM EDT",
+        "location": "Oncenter Rally, Syracuse, NY",
+        "claim_summary": "Claimed his tariffs brought Micron's $100B semiconductor plant to Syracuse, taking sole credit.",
+        "quote": "\"I brought Micron here with my tariffs. If it wasn't for my tariffs, they'd be building in China. We made the $100 billion deal happen right here in Syracuse. Nobody else could have made this deal.\"",
+        "verdict": "REFUTED BY EVIDENCE • SCORE: 9.4/10",
+        "verdict_score": 9.4,
+        "verdict_description": "Blatantly false. Micron committed the $100B investment four years earlier in 2022 under the bipartisan CHIPS and Science Act, which Trump previously condemned and called a 'horrible bill' that should be repealed.",
+        "primary_context": "Delivered in Syracuse, NY during an 80-minute campaign rally in support of Bruce Blakeman.",
+        "media": {
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Donald_Trump_%2827150816364%29.jpg",
+          "image_caption": "Donald Trump addressing an arena rally crowd from the podium in Syracuse, New York.",
+          "image_credit": "Wikimedia Commons / Gage Skidmore",
+          "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Syracuse+rally",
+          "video_platform": "C-SPAN Rally Feed",
+          "video_timestamp": "Timestamp: 42:15",
+          "video_title": "Primary Rally Recording: Trump remarks on Micron semiconductor facility"
+        },
+        "key_facts": [
+          {
+            "point": "Announced in 2022, Not 2026",
+            "detail": "Micron publicly finalized its commitment to invest up to $100B in Clay, NY on October 4, 2022 — four full years prior to this rally speech."
+          },
+          {
+            "point": "Incentivized by the CHIPS Act, Not Tariffs",
+            "detail": "Micron CEO Sanjay Mehrotra explicitly cited federal grants from the 2022 CHIPS and Science Act and NY Green CHIPS tax incentives as the determining factors. Tariffs played zero role in the agreement."
+          },
+          {
+            "point": "Trump Campaign Previously Vowed to Repeal the Law",
+            "detail": "Trump repeatedly condemned the CHIPS Act as a 'horrible bill' and suggested repealing it. Taking personal credit for a manufacturing campus made possible by legislation he opposed is contradicted by the public record."
+          }
+        ],
+        "sources": [
+          {
+            "name": "WRVO Public Media (NPR Affiliate)",
+            "badge": "Local Investigative Record",
+            "headline": "Fact Check: Micron’s $100B Syracuse MegaFab was secured in 2022 under CHIPS Act, not Trump tariffs",
+            "url": "https://www.wrvo.org",
+            "takeaway": "Confirmed local lease documents and timeline demonstrating the project was established long before Trump's recent tariff statements."
+          },
+          {
+            "name": "PolitiFact",
+            "badge": "Independent Fact-Check",
+            "headline": "Trump falsely claims his tariff policies brought Micron's $100B semiconductor plant to New York",
+            "url": "https://www.politifact.com",
+            "takeaway": "Rates claim 'False': Tariffs had zero bearing on the investment agreement; Trump took credit for Biden-era legislation."
+          },
+          {
+            "name": "Micron Technology Primary Press Release",
+            "badge": "Primary Corporate Document",
+            "headline": "Micron Announces Historic $100 Billion Investment in New York Semiconductor Manufacturing (Oct 4, 2022)",
+            "url": "https://www.micron.com",
+            "takeaway": "Original company announcement crediting bipartisan federal CHIPS grants and NY Green CHIPS incentives as decisive factors."
+          }
+        ],
+        "media_framing": {
+          "critical": {
+            "outlet": "Mainstream & Independent Media (NYT, MSNBC, NPR)",
+            "headline": "Blatant Historical Revisionism: Trump Takes Credit for Legislation He Tried to Kill",
+            "summary": "Highlights the direct contradiction between calling for the repeal of the CHIPS Act and simultaneously claiming personal credit for its $100B campus."
+          },
+          "conservative": {
+            "outlet": "Right-Wing & Campaign Press (Fox News, Sky News, Campaign PR)",
+            "headline": "Trump Energizes Upstate New York, Spotlighting Tariff Shield for American Manufacturing",
+            "summary": "Frames the statement not as a literal timeline, but as proof that aggressive tariff deterrence is what forces corporations to keep manufacturing inside the US."
+          }
+        },
+        "tags": ["#Economy", "#Semiconductors", "#Tariffs", "#SyracuseRally"]
+      },
+      {
+        "id": "2026-10-09-lake-america",
+        "date": "2026-10-09",
+        "timestamp": "October 9, 2026 • 8:15 PM EDT",
+        "location": "Oncenter Rally, Syracuse, NY",
+        "claim_summary": "Referred to Lake Ontario as 'Lake America' after signing an executive order ordering federal maps to rename it.",
+        "quote": "\"It is great to be back in upstate New York, just a short distance from the beautiful shores of Lake America. Canada had it long enough, but it belongs to us.\"",
+        "verdict": "REFUTED BY TREATY • SCORE: 8.8/10",
+        "verdict_score": 8.8,
+        "verdict_description": "Lake Ontario is an international body of water divided by the US-Canada border under the 1909 Boundary Waters Treaty. A US executive order has zero international legal standing.",
+        "primary_context": "Rally remarks following an August executive order directing US federal agencies to refer to Lake Ontario as 'Lake America' amid cross-border trade friction.",
+        "media": {
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Donald_Trump_signs_an_Executive_Order_regarding_childhood_vaccines_in_the_Oval_Office%2C_Monday%2C_August_10%2C_2026_-_2.jpg",
+          "image_caption": "Donald Trump displaying a signed executive order at the Resolute Desk in the Oval Office.",
+          "image_credit": "The White House / Public Domain",
+          "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+executive+order+signing",
+          "video_platform": "C-SPAN White House Feed",
+          "video_timestamp": "Timestamp: 18:40",
+          "video_title": "Oval Office Briefing: Executive Order signing on bilateral Great Lakes jurisdiction"
+        },
+        "key_facts": [
+          {
+            "point": "Governed by 1909 Treaty",
+            "detail": "The boundary and naming conventions are governed by the 1909 Boundary Waters Treaty, an international pact requiring mutual consent."
+          },
+          {
+            "point": "Canada & Cartographers Reject Change",
+            "detail": "Canadian officials, international cartographers, and the International Hydrographic Organization rejected the change."
+          },
+          {
+            "point": "Pattern of Renaming Stunts",
+            "detail": "Follows similar unilateral declarations regarding the 'Gulf of America' and musings about 'Trump Ocean'."
+          }
+        ],
+        "sources": [
+          {
+            "name": "PBS NewsHour",
+            "badge": "Fact-Checker",
+            "headline": "Why executive orders cannot unilaterally rename international Great Lakes",
+            "url": "https://www.pbs.org",
+            "takeaway": "Legal scholars explain that unilateral US administrative orders cannot alter international maritime boundaries or names."
+          },
+          {
+            "name": "The Washington Post",
+            "badge": "News Analysis",
+            "headline": "From 'Gulf of America' to 'Lake America': Trump's geographical crusade",
+            "url": "https://www.washingtonpost.com",
+            "takeaway": "Catalogues how symbolic name-changes are deployed as rally applause lines during trade disputes."
+          },
+          {
+            "name": "International Joint Commission (IJC)",
+            "badge": "Primary Treaty Body",
+            "headline": "Official Map and Boundary Waters Registry",
+            "url": "https://www.ijc.org",
+            "takeaway": "Primary records reaffirming Lake Ontario's recognized binational jurisdiction."
+          }
+        ],
+        "media_framing": {
+          "critical": {
+            "outlet": "Diplomatic & Independent Press",
+            "headline": "Bizarre Border Grievance: Trump Trivializes Treaty Relations for Cheap Cheers",
+            "summary": "Mock the claim as geography denialism that risks alienating key trading partners like Canada over harmless semantics."
+          },
+          "conservative": {
+            "outlet": "Populist Commentators & Fox Radio",
+            "headline": "America First Reclaims Our Waters: Defying Bureaucratic Border Complacency",
+            "summary": "Praise the move as an assertive cultural and territorial stance showing Trump's willingness to stand up to Canadian trade tactics."
+          }
+        },
+        "tags": ["#ForeignPolicy", "#Canada", "#Geography", "#ExecutiveOrders"]
+      },
+      {
+        "id": "2026-10-08-tariff-military-bonuses",
+        "date": "2026-10-08",
+        "timestamp": "October 8, 2026 • 2:30 PM CDT",
+        "location": "San Antonio, TX",
+        "claim_summary": "Claimed military service member bonuses were paid directly from billions collected from foreign tariffs.",
+        "quote": "\"Every soldier is getting a massive bonus this month, paid 100% by the billions pouring in from our foreign tariffs. China and foreign countries are paying our military bonuses directly.\"",
+        "verdict": "DEBUNKED BY BUDGET DATA • SCORE: 9.2/10",
+        "verdict_score": 9.2,
+        "verdict_description": "False. Tariff receipts flow into the general US Treasury fund, not a defense bonus account. Pentagon records confirm bonus checks were funded by reallocating existing DoD housing allowance funds.",
+        "primary_context": "Campaign speech delivered to veterans and military families in San Antonio, Texas.",
+        "media": {
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/President_Donald_Trump_speaks_to_U.S._service_members_overseas_170527-M-GL218-159.jpg",
+          "image_caption": "Donald Trump addressing U.S. service members during a military personnel event.",
+          "image_credit": "U.S. Department of Defense / Public Domain",
+          "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+military+troops+speech",
+          "video_platform": "DoD & C-SPAN Primary Broadcast",
+          "video_timestamp": "Timestamp: 27:04",
+          "video_title": "Speech Footage: Trump speaks to troops regarding bonus pay and tariff revenues"
+        },
+        "key_facts": [
+          {
+            "point": "Funded by Housing Offsets, Not Tariffs",
+            "detail": "Department of Defense budget transfers confirm military bonus payments were offset by reprogramming $1.2B in surplus military housing allowance allocations."
+          },
+          {
+            "point": "Tariffs Do Not Fund Specific Programs",
+            "detail": "Under federal budget law (Title 19), customs duties are deposited into the general fund of the Treasury and cannot be directly earmarked for executive bonuses without Congressional appropriation."
+          },
+          {
+            "point": "Tariffs Are Paid by US Importers",
+            "detail": "Every major economic study and customs documentation confirms tariffs are paid upon port entry by American importers, not foreign treasuries."
+          }
+        ],
+        "sources": [
+          {
+            "name": "Military Times",
+            "badge": "Defense Reporting",
+            "headline": "Fact check: Where the money for recent military bonuses actually came from",
+            "url": "https://www.militarytimes.com",
+            "takeaway": "Confirms Pentagon funding documents show money was shifted internally from personnel accounts, not foreign tariffs."
+          },
+          {
+            "name": "Congressional Budget Office (CBO)",
+            "badge": "Official Federal Agency",
+            "headline": "Monthly Budget Review: Customs Duties and General Fund Inflows",
+            "url": "https://www.cbo.gov",
+            "takeaway": "Official records demonstrating all customs revenue flows to the general fund with no discrete military bonus account."
+          },
+          {
+            "name": "FactCheck.org",
+            "badge": "Independent Fact-Check",
+            "headline": "Trump revives false claim that foreign nations directly fund US troop bonuses",
+            "url": "https://www.factcheck.org",
+            "takeaway": "Deconstructs the mechanism of tariffs and highlights that American consumers and businesses bear the duty payments."
+          }
+        ],
+        "media_framing": {
+          "critical": {
+            "outlet": "Mainstream & Defense Watchdogs (Defense News, CNN)",
+            "headline": "Budget Sleight of Hand: Trump Falsely Attributes Routine DoD Housing Reallocations to Tariff Windfalls",
+            "summary": "Emphasizes the misleading fiscal accounting that hides internal military budget shifts behind populist trade claims."
+          },
+          "conservative": {
+            "outlet": "Conservative Outlets (Fox Business, Daily Wire)",
+            "headline": "Trump Delivers for Troops: Aggressive Trade Stance Bolsters Defense Morale",
+            "summary": "Highlights the popular military bonus rollout as evidence that Trump's broader economic protectionism strengthens national defense."
+          }
+        },
+        "tags": ["#Military", "#Tariffs", "#Economy", "#FederalBudget"]
+      },
+      {
+        "id": "2026-10-07-social-security-120-years-old",
+        "date": "2026-10-07",
+        "timestamp": "October 7, 2026 • 8:00 PM CDT",
+        "location": "Omaha Arena Speech, NE",
+        "claim_summary": "Claimed millions of 120-year-olds are actively collecting illegal Social Security payments every month.",
+        "quote": "\"We have millions and millions of people who are 120, 130 years old, dead for fifty years, collecting Social Security checks every single month. Millions of illegal checks going to dead people!\"",
+        "verdict": "WILDLY FICTIONAL • SCORE: 9.6/10",
+        "verdict_score": 9.6,
+        "verdict_description": "Completely false. The Social Security Administration's Inspector General confirmed zero monthly benefit payments are issued to individuals over 120. The claim distorts legacy database records with no recorded death date.",
+        "primary_context": "Campaign address in Nebraska focusing on federal spending, waste, and entitlements.",
+        "media": {
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Donald_Trump_%2850548277763%29.jpg",
+          "image_caption": "Donald Trump speaking energetically at an arena rally in Omaha, Nebraska.",
+          "image_credit": "Wikimedia Commons / Gage Skidmore",
+          "video_url": "https://www.c-span.org/search/?searchtype=Videos&query=Donald+Trump+Omaha+Nebraska",
+          "video_platform": "C-SPAN Arena Broadcast",
+          "video_timestamp": "Timestamp: 51:12",
+          "video_title": "Broadcast Footage: Trump remarks on Social Security administration and fraud"
+        },
+        "key_facts": [
+          {
+            "point": "Zero Active Payments to Super-Centenarians",
+            "detail": "Social Security Administration audit records show zero monthly benefit checks are issued to individuals listed as over 120 years old."
+          },
+          {
+            "point": "Confusion Between Database Entries & Checks",
+            "detail": "The figure originates from historical Social Security Number databases created before the 1970s where deceased holders were never marked with death dates, not an active check payment list."
+          },
+          {
+            "point": "Automated Death Master File Safeguards",
+            "detail": "The SSA cross-checks state vital statistics and financial institutions monthly, automatically suspending accounts upon death reports."
+          }
+        ],
+        "sources": [
+          {
+            "name": "CBS News",
+            "badge": "Investigative Analysis",
+            "headline": "Fact-checking Trump's claim that millions over 120 are getting Social Security checks",
+            "url": "https://www.cbsnews.com",
+            "takeaway": "Interviews SSA actuaries who clarify that inactive numbers in a computerized registry do not equal dispatched checks."
+          },
+          {
+            "name": "Social Security Administration OIG",
+            "badge": "Official Federal Audit",
+            "headline": "Audit Report: Accuracy of the Death Master File and Centenarian Records",
+            "url": "https://oig.ssa.gov",
+            "takeaway": "Primary federal audit establishing that no payments were sent to individuals 120 and older with missing death records."
+          },
+          {
+            "name": "PolitiFact",
+            "badge": "Independent Fact-Check",
+            "headline": "Are 'millions of 120-year-olds' receiving Social Security checks? Pants on Fire.",
+            "url": "https://www.politifact.com",
+            "takeaway": "Rates claim 'Pants on Fire' — conflates inactive electronic database records with actual financial disbursements."
+          }
+        ],
+        "media_framing": {
+          "critical": {
+            "outlet": "Mainstream & Fact-Checking Press (WaPo, MSNBC, Forbes)",
+            "headline": "Phantom Beneficiaries: Trump Distorts Decades-Old Database Glitch to Attack Social Security Integrity",
+            "summary": "Points out how exaggerating clerical database anomalies undermines public trust in essential earned-benefit programs."
+          },
+          "conservative": {
+            "outlet": "Right-Wing Media (Fox News, Breitbart)",
+            "headline": "Trump Calls for Sweeping Audit of Broken Entitlement Bureaucracy",
+            "summary": "Frames the rhetoric as a necessary call to clean up Washington's antiquated record-keeping and eliminate government waste."
+          }
+        },
+        "tags": ["#SocialSecurity", "#Economy", "#Entitlements", "#GovernmentWaste"]
+      }
+    ];
 
     function renderArchiveList() {
       const container = document.getElementById('archive-list');
       if (!container) return;
 
       if (filteredIndices.length === 0) {
-        container.innerHTML = '<div class="text-xs text-slate-400 p-4 text-center">No statements match your search criteria.</div>';
+        container.innerHTML = '<div class="col-span-full text-xs text-slate-400 p-8 text-center bg-white rounded-3xl border border-slate-200">No statements match your search criteria.</div>';
         return;
       }
 
@@ -958,17 +812,19 @@
         const item = quotesData[idx];
         const isSelected = idx === currentIndex;
         return `
-          <div onclick="loadQuote(${idx})" class="archive-item p-3.5 rounded-2xl cursor-pointer transition ${
-            isSelected ? 'bg-blue-50/80 border-2 border-gov-blue shadow-xs' : 'bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+          <div onclick="loadQuote(${idx})" class="p-5 rounded-3xl cursor-pointer transition flex flex-col justify-between ${
+            isSelected ? 'bg-blue-50/80 border-2 border-gov-blue shadow-xs ring-2 ring-blue-100' : 'bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xs'
           }">
-            <div class="flex items-center justify-between text-[11px] mb-1">
-              <span class="font-bold ${isSelected ? 'text-gov-blue' : 'text-slate-700'}">${item.date}</span>
-              <span class="text-slate-500">${item.location}</span>
+            <div>
+              <div class="flex items-center justify-between text-[11px] mb-2">
+                <span class="font-bold ${isSelected ? 'text-gov-blue' : 'text-slate-700'}">${item.date}</span>
+                <span class="text-slate-500 truncate max-w-[140px]">${item.location}</span>
+              </div>
+              <h4 class="text-xs sm:text-sm font-bold text-gov-navy line-clamp-2 leading-snug">${item.claim_summary}</h4>
             </div>
-            <h4 class="text-xs font-bold text-gov-navy line-clamp-2">${item.claim_summary}</h4>
-            <div class="flex items-center justify-between mt-2 text-[10px]">
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-100 text-[10px]">
               <span class="font-black uppercase text-gov-crimson">${item.verdict.split('•')[0].trim()}</span>
-              <span class="text-slate-500 font-mono font-semibold">Score: ${item.verdict_score}/10</span>
+              <span class="text-slate-500 font-mono font-bold">Score: ${item.verdict_score}/10</span>
             </div>
           </div>
         `;
@@ -993,14 +849,14 @@
       if (!item) return;
 
       document.getElementById('current-date-badge').innerText = item.date;
-      document.getElementById('quote-timestamp').innerText = item.timestamp;
-      document.getElementById('verdict-tag').innerHTML = `<i data-lucide="alert-triangle" class="w-4 h-4"></i> ${item.verdict}`;
+      document.getElementById('quote-timestamp').innerText = `${item.timestamp} • ${item.location}`;
+      document.getElementById('verdict-tag').innerHTML = `<i data-lucide="alert-triangle" class="w-4 h-4 text-gov-crimson"></i> ${item.verdict}`;
       document.getElementById('quote-text').innerText = item.quote;
       document.getElementById('quote-context').innerText = item.primary_context;
       document.getElementById('absurdity-score').innerText = `${item.verdict.split('•')[0].trim()} • ${item.verdict_score} / 10`;
       document.getElementById('verdict-desc').innerText = item.verdict_description;
 
-      // Render Primary Media (Verified Photo & Video)
+      // Render Primary Media (Photo & Video)
       if (item.media) {
         document.getElementById('quote-image').src = item.media.image_url;
         document.getElementById('quote-image-caption').innerText = item.media.image_caption;
@@ -1014,7 +870,7 @@
       // Render Facts
       const factsContainer = document.getElementById('facts-container');
       factsContainer.innerHTML = item.key_facts.map((f, i) => `
-        <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-3.5 shadow-2xs">
+        <div class="p-4 rounded-2xl bg-slate-50/60 border border-slate-200/80 flex items-start gap-3.5 shadow-2xs">
           <span class="w-6 h-6 rounded-full bg-blue-100 text-gov-blue font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">${i + 1}</span>
           <div>
             <h4 class="text-sm font-bold text-gov-navy">${f.point}</h4>
@@ -1040,13 +896,12 @@
 
       // Render Media Spin
       document.getElementById('spin-crit-outlet').innerText = item.media_framing.critical.outlet;
-      document.querySelector('#tab-spin .italic').innerText = `"${item.media_framing.critical.headline}"`;
-      document.querySelector('#tab-spin .text-\\[11px\\]').innerHTML = `<strong>Editorial Focus:</strong> ${item.media_framing.critical.summary}`;
+      document.getElementById('spin-crit-quote').innerText = `"${item.media_framing.critical.headline}"`;
+      document.getElementById('spin-crit-desc').innerHTML = `<strong>Editorial Focus:</strong> ${item.media_framing.critical.summary}`;
 
-      const favBlock = document.querySelectorAll('#tab-spin .p-5')[1];
-      favBlock.querySelector('#spin-fav-outlet').innerText = item.media_framing.conservative.outlet;
-      favBlock.querySelector('.italic').innerText = `"${item.media_framing.conservative.headline}"`;
-      favBlock.querySelector('.text-\\[11px\\]').innerHTML = `<strong>Editorial Focus:</strong> ${item.media_framing.conservative.summary}`;
+      document.getElementById('spin-fav-outlet').innerText = item.media_framing.conservative.outlet;
+      document.getElementById('spin-fav-quote').innerText = `"${item.media_framing.conservative.headline}"`;
+      document.getElementById('spin-fav-desc').innerHTML = `<strong>Editorial Focus:</strong> ${item.media_framing.conservative.summary}`;
 
       // Render Tags
       document.getElementById('quote-tags').innerHTML = item.tags.map(t => `
@@ -1073,7 +928,7 @@
     function loadQuote(index) {
       currentIndex = index;
       renderCurrentQuote();
-      window.scrollTo({ top: 380, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function toggleModal(id) {
@@ -1099,10 +954,20 @@
       showToast('Official finding link copied.');
     }
 
+    // Initialize with dynamic fetch or fallback
     document.addEventListener('DOMContentLoaded', () => {
-      renderCurrentQuote();
-      renderArchiveList();
-      lucide.createIcons();
+      fetch('data/quotes.json')
+        .then(res => res.json())
+        .then(data => {
+          quotesData = data;
+          filteredIndices = quotesData.map((_, i) => i);
+          renderCurrentQuote();
+        })
+        .catch(() => {
+          quotesData = fallbackQuotes;
+          filteredIndices = quotesData.map((_, i) => i);
+          renderCurrentQuote();
+        });
     });
   </script>
 </body>
